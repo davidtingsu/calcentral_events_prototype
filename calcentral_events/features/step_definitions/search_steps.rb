@@ -7,23 +7,45 @@ Given /^there are upcoming events$/ do
     }
 end
 
-When /^(?:|I )fill in "([^"]*)" with categories "([^"]*)"$/ do |field, value|
-  category_ids = value.scan(/\d+/)
-  category_names = category_ids.map{|id| Category.find(id)}.map(&:name).compact
-  fill_in(field, :with => category_names.join(','))
+When /^(?:|I )fill in "([^"]*)" with (.+) "([^"]*)"$/ do |field, model_type, value|
+  ids = value.scan(/\d+/)
+  case model_type
+    when 'categories'
+      category_names = ids.map{|id| Category.find_by_id(id)}.compact.map(&:name)
+      fill_in(field, :with => category_names.join(','))
+    when 'clubs'
+      club_names = ids.map{|id| Club.find_by_id(id)}.compact.map(&:name)
+      fill_in(field, :with => club_names.join(','))
+  end
+
 end
 
-Then /^(?:|I )should see all events$/ do
-    page.should have_selector('.table-striped tbody tr')
-    event_rows = all('.table-striped tbody tr')
-    event_rows.count.should be(Event.count)
+Then /^(?:|I )should see (.*) events$/ do |keyword|
+    case keyword
+        when 'all'
+            page.should have_selector('.table-striped tbody tr')
+            event_rows = all('.table-striped tbody tr')
+            event_rows.count.should be(Event.count)
+
+        when 'no'
+            page.should_not have_selector('.table-striped tbody tr')
+    end
 end
 
-Then /^I should see events for categories "(.*)"$/ do |category_ids|
-  category_ids = category_ids.scan(/\d+/)
-  category_names = category_ids.map{|id| Category.find(id)}.map(&:name).compact
-  page.should have_selector('.table-striped tbody tr')
+
+Then /^I should see events for (.+) "(.*)"$/ do |model_type, ids|
+  ids = ids.scan(/\d+/)
   event_rows = all('.table-striped tbody tr')
-  event_rows.count.should be(Event.find_by_category(*category_names).count)
+
+  case model_type
+      when 'categories'
+          category_names = ids.map{|id| Category.find_by_id(id)}.compact.map(&:name)
+          page.should have_selector('.table-striped tbody tr') if Event.find_by_category(*category_names).any?
+          event_rows.count.should be(Event.find_by_category(*category_names).count)
+      when 'clubs'
+          club_names = ids.map{|id| Club.find_by_id(id)}.compact.map(&:name)
+          page.should have_selector('.table-striped tbody tr') if Event.find_by_club(*club_names).any?
+          event_rows.count.should be(Event.find_by_club(*club_names).count)
+      end
 end
 
