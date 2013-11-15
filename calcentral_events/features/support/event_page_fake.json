@@ -1,0 +1,19 @@
+{
+   "id": "343835642372256",
+   "owner": {
+      "category": "Non-profit organization",
+      "name": "The Berkeley Project",
+      "id": "313228564146"
+   },
+   "name": "The Berkeley Project Info Session!",
+   "description": "INFO SESSION THIS TUESDAY (9/4) AT 8PM \u0040 106 MOFFIT!\n\nIf you want to get more involved with the Berkeley Project, come out to our info session this Tuesday at 8! Get to know our core, how to become more involved, and about joining a committee! :)\n\nThe Berkeley Project is the largest student-run community service organization on the UC Berkeley campus. We strive to build a legacy of service and a strong, sustainable partnership between the students of Cal and the city and residents of Berkeley. Every fall, we organize Berkeley Project Day where 2,000+ UC Berkeley students unite to positively impact the community through a network of service projects in the City of Berkeley.\n\nFind out more at www.berkeleyproject.org",
+   "start_time": "2012-09-04T20:00:00-0700",
+   "timezone": "America/Los_Angeles",
+   "is_date_only": false,
+   "location": "106 Moffitt",
+   "venue": {
+      "name": "106 Moffitt"
+   },
+   "privacy": "OPEN",
+   "updated_time": "2012-09-03T05:52:36+0000"
+}

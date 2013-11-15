@@ -1,0 +1,846 @@
+{
+   "data": [
+      {
+         "name": "H\u0040B goes to Hacktech",
+         "start_time": "2014-01-24",
+         "timezone": "America/Los_Angeles",
+         "location": "Rose Bowl Stadium",
+         "id": "677629605582862"
+      },
+      {
+         "name": "H\u0040B: BEARHACK",
+         "start_time": "2013-11-23T11:00:00-0800",
+         "end_time": "2013-11-24T13:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "439024929535684"
+      },
+      {
+         "name": "H\u0040B:  d3.js",
+         "start_time": "2013-11-12T18:30:00-0800",
+         "end_time": "2013-11-12T20:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "405 Soda Hall",
+         "id": "495033673943287"
+      },
+      {
+         "name": "H\u0040B:  TI-89 Calculator Workshop",
+         "start_time": "2013-11-06T19:00:00-0800",
+         "end_time": "2013-11-06T21:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "HP Auditorium",
+         "id": "535461533206737"
+      },
+      {
+         "name": "H\u0040B:  Intro to Javascript",
+         "start_time": "2013-11-04T20:00:00-0800",
+         "end_time": "2013-11-04T21:30:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "HP Auditorium",
+         "id": "484170985014432"
+      },
+      {
+         "name": "H\u0040B:  Twilio Workshop",
+         "start_time": "2013-10-29T19:00:00-0700",
+         "end_time": "2013-10-29T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "HP Auditorium",
+         "id": "174575812745771"
+      },
+      {
+         "name": "H\u0040B: Regex",
+         "start_time": "2013-10-25T18:00:00-0700",
+         "end_time": "2013-10-25T20:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "440582046058754"
+      },
+      {
+         "name": "H\u0040B + Addepar: Ember.js",
+         "start_time": "2013-10-17T18:30:00-0700",
+         "end_time": "2013-10-17T20:30:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "HP Auditorium",
+         "id": "236873106469949"
+      },
+      {
+         "name": "H\u0040B:  Occupy Woz",
+         "start_time": "2013-10-12T11:00:00-0700",
+         "end_time": "2013-10-13T14:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "216085198551962"
+      },
+      {
+         "name": "H\u0040B:  Problem Solving For Coding Interviews",
+         "start_time": "2013-10-08T20:00:00-0700",
+         "end_time": "2013-10-08T22:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "1422379784644413"
+      },
+      {
+         "name": "H\u0040B:  Code Generation with LLVM",
+         "start_time": "2013-10-02T20:00:00-0700",
+         "end_time": "2013-10-02T22:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "511182398971187"
+      },
+      {
+         "name": "H\u0040B: Hackjam",
+         "start_time": "2013-09-28T11:00:00-0700",
+         "end_time": "2013-09-29T01:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "1384940795070650"
+      },
+      {
+         "name": "H\u0040B: Intro to Web Development",
+         "start_time": "2013-09-26T20:00:00-0700",
+         "end_time": "2013-09-26T22:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "589057734467064"
+      },
+      {
+         "name": "H\u0040B + Khan Academy:  Educational Hacking",
+         "start_time": "2013-09-24T18:30:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "HP Auditorium (306 Soda Hall)",
+         "id": "170033639855163"
+      },
+      {
+         "name": "H\u0040B + Facebook :  Crush Your Coding Interview",
+         "start_time": "2013-09-23T19:00:00-0700",
+         "end_time": "2013-09-23T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "306 soda hall",
+         "id": "698499943499573"
+      },
+      {
+         "name": "H\u0040B:  Hacker Fair/ General Meeting",
+         "start_time": "2013-09-13T19:30:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "567583429964140"
+      },
+      {
+         "name": "H\u0040B:  Intro to Git",
+         "start_time": "2013-09-10T19:00:00-0700",
+         "end_time": "2013-09-10T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "143914129152265"
+      },
+      {
+         "name": "H\u0040B:  Unix Workshop",
+         "start_time": "2013-09-06T18:00:00-0700",
+         "end_time": "2013-09-06T20:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Soda Hall Room 306- HP Auditorium",
+         "id": "597990800253062"
+      },
+      {
+         "name": "H\u0040B:  Intro to Hacking",
+         "start_time": "2013-09-02T19:00:00-0700",
+         "end_time": "2013-09-02T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "317673071710404"
+      },
+      {
+         "name": "MedHelp's Healthy Hack Day Hackathon",
+         "start_time": "2013-05-10",
+         "location": "929 Market St. Suite 300 San Francisco, CA 94109",
+         "id": "514082908629217"
+      },
+      {
+         "name": "H\u0040B \"AngelHack: Hackers at Berkeley Edition\"",
+         "start_time": "2013-05-04T09:00:00-0700",
+         "end_time": "2013-05-05T16:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Soda Hall",
+         "id": "152593864909505"
+      },
+      {
+         "name": "H\u0040B \"Cal Day Hacker Fair\"",
+         "start_time": "2013-04-20T10:00:00-0700",
+         "end_time": "2013-04-20T13:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Cory Hall Hackerspace",
+         "id": "432145960211077"
+      },
+      {
+         "name": "H\u0040B \"Origami Workshop\"",
+         "start_time": "2013-04-19T19:00:00-0700",
+         "end_time": "2013-04-19T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "310 Soda",
+         "id": "330527687072616"
+      },
+      {
+         "name": "H\u0040B \"Bitcoin Workshop\"",
+         "start_time": "2013-04-17T19:00:00-0700",
+         "end_time": "2013-04-17T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "306 Soda",
+         "id": "176476922505422"
+      },
+      {
+         "name": "H\u0040B \"HackJam2\"",
+         "start_time": "2013-04-13T10:00:00-0700",
+         "end_time": "2013-04-13T23:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Cory Hall Hacker Space",
+         "id": "158441244317384"
+      },
+      {
+         "name": "H\u0040B \"iOS Workshop\"",
+         "start_time": "2013-04-12T19:00:00-0700",
+         "end_time": "2013-04-12T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "200 Sutardja Dai Hall",
+         "id": "508612739188214"
+      },
+      {
+         "name": "Hackerspace - Ribbon Cutting & Opening Celebration",
+         "start_time": "2013-04-11T10:00:00-0700",
+         "end_time": "2013-04-11T12:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Texas Instruments Electronics Design Lab (2nd Floor, Cory Hall)",
+         "id": "438955662854587"
+      },
+      {
+         "name": "H\u0040B \"Electric Imp Workshop\"",
+         "start_time": "2013-04-09T19:00:00-0700",
+         "end_time": "2013-04-09T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "565633416804039"
+      },
+      {
+         "name": "H\u0040B \"The Big Hack: Cal vs. Stanford\"",
+         "start_time": "2013-04-06T09:30:00-0700",
+         "end_time": "2013-04-07T18:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Stanford University Jen-Hsun Huang Engineering Center",
+         "id": "389128324518744"
+      },
+      {
+         "name": "H\u0040B \"Android Workshop\"",
+         "start_time": "2013-03-19T18:00:00-0700",
+         "end_time": "2013-03-19T20:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "306 Soda",
+         "id": "490123167702344"
+      },
+      {
+         "name": "H\u0040B \"Founder Talk\"",
+         "start_time": "2013-03-16T14:00:00-0700",
+         "end_time": "2013-03-16T17:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "436615053086978"
+      },
+      {
+         "name": "H\u0040B and Facebook \"Being a Product Manager\"",
+         "start_time": "2013-03-15T18:30:00-0700",
+         "end_time": "2013-03-15T19:30:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "427002147383465"
+      },
+      {
+         "name": "H\u0040B & General Catalyst Partners \"VC Office Hours\"",
+         "start_time": "2013-03-14T10:00:00-0700",
+         "end_time": "2013-03-14T17:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "200 Cory Hall",
+         "id": "327033600752057"
+      },
+      {
+         "name": "H\u0040B \"Backend Web Development\"",
+         "start_time": "2013-03-13T19:30:00-0700",
+         "end_time": "2013-03-13T21:30:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "405 Soda",
+         "id": "612387408778171"
+      },
+      {
+         "name": "H\u0040B \"Design Workshop\"",
+         "start_time": "2013-03-07T19:00:00-0800",
+         "end_time": "2013-03-07T21:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "405 Soda",
+         "id": "134487150060778"
+      },
+      {
+         "name": "H\u0040B \"Eclipse Workshop\"",
+         "start_time": "2013-02-28T18:30:00-0800",
+         "end_time": "2013-02-28T20:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "306 Soda",
+         "id": "345543362231403"
+      },
+      {
+         "name": "H\u0040B \"Two Machines, One Concurrent Data Structure\"",
+         "start_time": "2013-02-26T19:00:00-0800",
+         "end_time": "2013-02-26T21:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "405 Soda",
+         "id": "336927986409172"
+      },
+      {
+         "name": "H\u0040B \"Hardcore Hardware Prototyping\"",
+         "start_time": "2013-02-20T19:30:00-0800",
+         "end_time": "2013-02-20T21:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "521 Cory",
+         "id": "418907178194306"
+      },
+      {
+         "name": "H\u0040B \"Occupy Woz\"",
+         "start_time": "2013-02-17T10:00:00-0800",
+         "end_time": "2013-02-18T16:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "469243893124878"
+      },
+      {
+         "name": "H\u0040B \"Starting Web Design\"",
+         "start_time": "2013-02-12T19:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "306 Soda",
+         "id": "537534259602587"
+      },
+      {
+         "name": "H\u0040B & Stripe \"HackJam\"",
+         "start_time": "2013-02-09T12:00:00-0800",
+         "end_time": "2013-02-10T00:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "457711287617728"
+      },
+      {
+         "name": "H\u0040B \"Replace Your Brain: AI Workshop\"",
+         "start_time": "2013-02-06T19:30:00-0800",
+         "end_time": "2013-02-06T21:30:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "306 Soda",
+         "id": "485996344786477"
+      },
+      {
+         "name": "H\u0040B \"General Meeting/Hacker Fair\"",
+         "start_time": "2013-01-26T13:00:00-0800",
+         "end_time": "2013-01-26T16:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "252302234900111"
+      },
+      {
+         "name": "H\u0040B \"Hack Your Body\"",
+         "start_time": "2013-01-24T19:00:00-0800",
+         "end_time": "2013-01-24T23:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "121878664650920"
+      },
+      {
+         "name": "H\u0040B \"Founder Talk\"",
+         "start_time": "2012-12-01T14:00:00-0800",
+         "end_time": "2012-12-01T17:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "515313835159116"
+      },
+      {
+         "name": "H\u0040B \"How do I startup? Workshop\"",
+         "start_time": "2012-11-29T19:00:00-0800",
+         "end_time": "2012-11-29T21:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "521 Cory Hall",
+         "id": "169033163239288"
+      },
+      {
+         "name": "H\u0040B & IEEE \"HACK\"",
+         "start_time": "2012-11-17T11:00:00-0800",
+         "end_time": "2012-11-18T11:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "351818148242605"
+      },
+      {
+         "name": "H\u0040B \"Scraper, no Scraping\"",
+         "start_time": "2012-11-15T19:00:00-0800",
+         "end_time": "2012-11-15T21:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "HP Auditorium (306 Soda)",
+         "id": "208680135933329"
+      },
+      {
+         "name": "H\u0040B \"Building a WebGL 3D Game Using ThreeJS\"",
+         "start_time": "2012-11-13T19:00:00-0800",
+         "end_time": "2012-11-13T21:00:00-0800",
+         "timezone": "America/Los_Angeles",
+         "location": "521 Cory Hall",
+         "id": "420845041303529"
+      },
+      {
+         "name": "H\u0040B & Bain \"Chain Reaction\"",
+         "start_time": "2012-11-03T13:00:00-0700",
+         "end_time": "2012-11-03T18:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "160474027428259"
+      },
+      {
+         "name": "H\u0040B \"Getting Started on the Cloud (AWS) Workshop\"",
+         "start_time": "2012-11-01T19:00:00-0700",
+         "end_time": "2012-11-01T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "310 Soda Hall",
+         "id": "368279166590839"
+      },
+      {
+         "name": "H\u0040B & 10gen \"Hello Mongo Workshop\"",
+         "start_time": "2012-10-30T19:00:00-0700",
+         "end_time": "2012-10-30T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "521 Cory",
+         "id": "220599321403859"
+      },
+      {
+         "name": "H\u0040B \"Vim for Beginners\"",
+         "start_time": "2012-10-25T19:00:00-0700",
+         "end_time": "2012-10-25T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "310 Soda Hall",
+         "id": "295042583942361"
+      },
+      {
+         "name": "H\u0040B \"Productive Command Line Hacking\"",
+         "start_time": "2012-10-24T19:00:00-0700",
+         "end_time": "2012-10-24T20:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "521 Cory Hall",
+         "id": "537562339592581"
+      },
+      {
+         "name": "H\u0040B \"Demystifying the Command Line\"",
+         "start_time": "2012-10-18T19:00:00-0700",
+         "end_time": "2012-10-18T20:30:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "310 Soda Hall",
+         "id": "360203184064691"
+      },
+      {
+         "name": "H\u0040B \"Hacking Electronics Part 2: Sensors and Actuators\"",
+         "start_time": "2012-10-16T19:00:00-0700",
+         "end_time": "2012-10-16T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "293 Cory Hall",
+         "id": "216566008474092"
+      },
+      {
+         "name": "H\u0040B & Twilio \"Text-based Voting and Polling\"",
+         "start_time": "2012-10-11T18:00:00-0700",
+         "end_time": "2012-10-11T20:00:00-0700",
+         "location": "405 Soda",
+         "id": "369406253140247"
+      },
+      {
+         "name": "H\u0040B & HKN \"Occupy Woz\"",
+         "start_time": "2012-10-06T10:00:00-0700",
+         "end_time": "2012-10-07T15:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "349948291765387"
+      },
+      {
+         "name": "H\u0040B \"Lockpicking Workshop\"",
+         "start_time": "2012-10-04T19:00:00-0700",
+         "end_time": "2012-10-04T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "310 Soda Hall",
+         "id": "491134240916288"
+      },
+      {
+         "name": "H\u0040B \"Web Design Workshop\"",
+         "start_time": "2012-10-02T19:00:00-0700",
+         "end_time": "2012-10-02T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "2060 Vlsb",
+         "id": "150816018393442"
+      },
+      {
+         "name": "H\u0040B & Box \"HackJam\"",
+         "start_time": "2012-09-29T11:00:00-0700",
+         "end_time": "2012-09-29T23:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "483518488339880"
+      },
+      {
+         "name": "H\u0040B \"Advanced Node.js\"",
+         "start_time": "2012-09-26T19:30:00-0700",
+         "end_time": "2012-09-26T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "405 Soda Hall",
+         "id": "415725685152198"
+      },
+      {
+         "name": "H\u0040B \"Node.js for Noobs\"",
+         "start_time": "2012-09-24T19:00:00-0700",
+         "end_time": "2012-09-24T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "306 Soda Hall",
+         "id": "419832311396817"
+      },
+      {
+         "name": "H\u0040B \"Git for Beginners\"",
+         "start_time": "2012-09-19T19:00:00-0700",
+         "end_time": "2012-09-19T20:30:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "293 Cory Hall",
+         "id": "409713285751999"
+      },
+      {
+         "name": "H\u0040B & Twitter \"How to Ace Your Technical Interview\"",
+         "start_time": "2012-09-17T19:00:00-0700",
+         "end_time": "2012-09-17T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "484347498250494"
+      },
+      {
+         "name": "H\u0040B \"Javascript for Beginners\"",
+         "start_time": "2012-09-13T20:00:00-0700",
+         "end_time": "2012-09-13T21:30:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "115424185271791"
+      },
+      {
+         "name": "H\u0040B & Facebook \"Tap into the Social Network\"",
+         "start_time": "2012-09-13T18:00:00-0700",
+         "end_time": "2012-09-13T20:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "256062541180688"
+      },
+      {
+         "name": "H\u0040B \"Hacking Electronics: Part 1\"",
+         "start_time": "2012-09-11T19:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "306 Soda Hall (HP Auditorium)",
+         "id": "323407944421263"
+      },
+      {
+         "name": "H\u0040B & Google \"Hacking\u0040YouTube\"",
+         "start_time": "2012-09-06T18:30:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "458363707527926"
+      },
+      {
+         "name": "H\u0040B \"Intro to Hacking\"",
+         "start_time": "2012-09-04T19:00:00-0700",
+         "end_time": "2012-09-04T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "306 Soda Hall (HP Auditorium)",
+         "id": "463062440393707"
+      },
+      {
+         "name": "H\u0040B \"Second Annual General Meeting\"",
+         "start_time": "2012-08-29T18:00:00-0700",
+         "end_time": "2012-08-29T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Wozniak Lounge",
+         "id": "135499029926579"
+      },
+      {
+         "name": "H\u0040B & CSUA \"Frisbee/Pizza Welcome Party\"",
+         "start_time": "2012-08-24T18:00:00-0700",
+         "end_time": "2012-08-24T21:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Memorial Glade",
+         "id": "394432040624084"
+      },
+      {
+         "name": "H\u0040B \"AngelHack Summer 2012: Hackers\u0040Berkeley Edition\"",
+         "start_time": "2012-06-23T09:00:00-0700",
+         "end_time": "2012-06-24T19:30:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Soda Hall",
+         "id": "273256386104846"
+      },
+      {
+         "name": "H\u0040B \"The Big Hack Part 2: Cal vs. Stanford\"",
+         "start_time": "2012-04-28T18:00:00-0700",
+         "end_time": "2012-04-29T18:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "UC Berkeley Startup Accelerator (Skydeck), 2150 Shattuck Ave, Penthouse Floor, Berkeley, CA, 94704",
+         "id": "417367091608297"
+      },
+      {
+         "name": "H\u0040B \"The Big Hack: Cal vs. Stanford\"",
+         "start_time": "2012-04-14T11:00:00-0700",
+         "end_time": "2012-04-15T15:00:00-0700",
+         "timezone": "America/Los_Angeles",
+         "location": "Stanford, CA",
+         "id": "420369807988684"
+      },
+      {
+         "name": "H\u0040B \"How to Open Source and Get Interviews Workshop\"",
+         "start_time": "2012-04-05T19:00:00",
+         "end_time": "2012-04-05T20:30:00",
+         "location": "405 Soda",
+         "id": "274124206003354"
+      },
+      {
+         "name": "H\u0040B \"Twitter Interview Workshop\"",
+         "start_time": "2012-03-19T19:00:00",
+         "end_time": "2012-03-19T20:00:00",
+         "location": "405 Soda",
+         "id": "301710103229855"
+      },
+      {
+         "name": "H\u0040B \"Hardware Hacking with Arduino\"",
+         "start_time": "2012-03-08T19:00:00",
+         "end_time": "2012-03-08T20:00:00",
+         "location": "310 Soda",
+         "id": "296303767096729"
+      },
+      {
+         "name": "H\u0040B \"Redis Workshop\"",
+         "start_time": "2012-03-06T19:00:00",
+         "end_time": "2012-03-06T20:00:00",
+         "location": "310 Soda",
+         "id": "353471791331323"
+      },
+      {
+         "name": "H\u0040B & HKN \"Occupy Woz\"",
+         "start_time": "2012-03-02T13:00:00",
+         "end_time": "2012-03-03T22:00:00",
+         "location": "Wozniak Lounge",
+         "id": "401166389897350"
+      },
+      {
+         "name": "H\u0040B \"Keyboard Solo Workshop\"",
+         "start_time": "2012-02-29T19:00:00",
+         "end_time": "2012-02-29T21:00:00",
+         "location": "405 Soda",
+         "id": "325574620806654"
+      },
+      {
+         "name": "H\u0040B \"Erlang Workshop\"",
+         "start_time": "2012-02-27T19:00:00",
+         "end_time": "2012-02-27T20:00:00",
+         "location": "405 Soda",
+         "id": "264393953629005"
+      },
+      {
+         "name": "H\u0040B Series: \"HTML/CSS/jQuery Part 3 - jQuery\"",
+         "start_time": "2012-02-23T19:00:00",
+         "end_time": "2012-02-23T20:00:00",
+         "location": "310 Soda",
+         "id": "170216043083510"
+      },
+      {
+         "name": "H\u0040B \"Lockpicking Workshop\"",
+         "start_time": "2012-02-20T19:00:00",
+         "end_time": "2012-02-20T20:00:00",
+         "location": "310 Soda",
+         "id": "186449891453385"
+      },
+      {
+         "name": "H\u0040B \"Django Series: Part I - Basics\"",
+         "start_time": "2012-02-15T19:00:00",
+         "end_time": "2012-02-15T21:00:00",
+         "location": "405 Soda",
+         "id": "118690541582366"
+      },
+      {
+         "name": "H\u0040B \"Solr/Lucene Workshop\"",
+         "start_time": "2012-02-13T19:00:00",
+         "end_time": "2012-02-13T20:00:00",
+         "location": "310 Soda",
+         "id": "323269071030612"
+      },
+      {
+         "name": "H\u0040B Series: \"HTML/CSS/jQuery Part 2 - CSS\"",
+         "start_time": "2012-02-09T19:00:00",
+         "end_time": "2012-02-09T20:00:00",
+         "location": "310 Soda",
+         "id": "323943534312443"
+      },
+      {
+         "name": "H\u0040B \"3D Programming With OpenGL\"",
+         "start_time": "2012-02-06T19:00:00",
+         "end_time": "2012-02-06T20:00:00",
+         "location": "310 Soda",
+         "id": "314726615215061"
+      },
+      {
+         "name": "H\u0040B \"hackthissite Workshop\"",
+         "start_time": "2012-02-02T19:00:00",
+         "end_time": "2012-02-02T21:00:00",
+         "location": "310 Soda",
+         "id": "147093492068294"
+      },
+      {
+         "name": "H\u0040B Series: \"HTML/CSS/jQuery Part 1 - HTML\"",
+         "start_time": "2012-01-31T19:00:00",
+         "end_time": "2012-01-31T20:00:00",
+         "location": "310 Soda",
+         "id": "164779343624888"
+      },
+      {
+         "name": "H\u0040B \"HackJam v2.0\"",
+         "start_time": "2012-01-28T14:00:00",
+         "end_time": "2012-01-29T02:00:00",
+         "location": "Wozniak Lounge",
+         "id": "261154093946986"
+      },
+      {
+         "name": "H\u0040B \"Surviving SQL\"",
+         "start_time": "2012-01-26T19:00:00",
+         "end_time": "2012-01-26T20:00:00",
+         "location": "310 Soda",
+         "id": "275430909173629"
+      },
+      {
+         "name": "H\u0040B \"Capturing Packets and Reverse Engineering Network Protocols...\"",
+         "start_time": "2012-01-24T19:00:00",
+         "end_time": "2012-01-24T20:00:00",
+         "location": "310 Soda",
+         "id": "230545057017818"
+      },
+      {
+         "name": "H\u0040B \"Hack4SignificantOther or other person you're creeping on\"",
+         "start_time": "2011-12-22T20:00:00",
+         "end_time": "2011-12-23T08:00:00",
+         "location": "Flotype Penthouse",
+         "id": "292890170749990"
+      },
+      {
+         "name": "H\u0040B \"iOS Workshop\"",
+         "start_time": "2011-12-07T19:00:00",
+         "end_time": "2011-12-07T22:00:00",
+         "location": "405 Soda",
+         "id": "303044156386373"
+      },
+      {
+         "name": "H\u0040B \"Hardware Hacking With Arduino\"",
+         "start_time": "2011-12-02T19:30:00",
+         "end_time": "2011-12-02T22:30:00",
+         "location": "310 Soda",
+         "id": "197507520324382"
+      },
+      {
+         "name": "H\u0040B \"Artificial Intelligence Workshop\"",
+         "start_time": "2011-12-01T19:00:00",
+         "end_time": "2011-12-01T21:00:00",
+         "location": "405 Soda",
+         "id": "249172898469278"
+      },
+      {
+         "name": "H\u0040B \"Mobile Apps With Sencha Touch/PhoneGap\"",
+         "start_time": "2011-11-30T19:30:00",
+         "end_time": "2011-11-30T20:30:00",
+         "location": "405 Soda",
+         "id": "289875327701276"
+      },
+      {
+         "name": "H\u0040B \"Ruby on Rails Workshop\"",
+         "start_time": "2011-11-29T19:00:00",
+         "end_time": "2011-11-29T21:00:00",
+         "location": "310 Soda",
+         "id": "118033678309488"
+      },
+      {
+         "name": "H\u0040B \"Productive Command-Line Hacking\"",
+         "start_time": "2011-11-22T20:00:00",
+         "end_time": "2011-11-22T21:00:00",
+         "location": "310 Soda",
+         "id": "298416103509646"
+      },
+      {
+         "name": "H\u0040B \"Programs with Processing\"",
+         "start_time": "2011-11-17T19:30:00",
+         "end_time": "2011-11-17T20:30:00",
+         "location": "405 Soda",
+         "id": "291945300829834"
+      },
+      {
+         "name": "H\u0040B \"Servlets, Servlets, and Moar Servlets\"",
+         "start_time": "2011-11-16T19:00:00",
+         "end_time": "2011-11-16T20:00:00",
+         "location": "405 Soda",
+         "id": "181676355251903"
+      },
+      {
+         "name": "H\u0040B \"Realtime Web Apps With Node.js & NowJS\"",
+         "start_time": "2011-11-15T19:30:00",
+         "end_time": "2011-11-15T20:30:00",
+         "location": "310 Soda",
+         "id": "188274824584879"
+      },
+      {
+         "name": "H\u0040B [Pre-HackJam] WebPython! (designed for students currently in 61A)",
+         "start_time": "2011-11-12T14:00:00",
+         "end_time": "2011-11-12T16:00:00",
+         "location": "310 Soda",
+         "id": "195776177163404"
+      },
+      {
+         "name": "H\u0040B [Pre-HackJam] Java Swing coding! (for students currently in 61B)",
+         "start_time": "2011-11-12T14:00:00",
+         "end_time": "2011-11-12T16:00:00",
+         "location": "405 Soda",
+         "id": "180429778708756"
+      },
+      {
+         "name": "H\u0040B Hack Jam!",
+         "start_time": "2011-11-12T14:00:00",
+         "end_time": "2011-11-13T01:00:00",
+         "location": "Wozniak Lounge",
+         "id": "195364080537721"
+      },
+      {
+         "name": "H\u0040B \"HTML5 & CSS3\" Workshop",
+         "start_time": "2011-11-11T19:00:00",
+         "end_time": "2011-11-11T20:00:00",
+         "location": "HP Auditorium",
+         "id": "233338640060106"
+      },
+      {
+         "name": "H\u0040B \"Gitting It Done\" Workshop",
+         "start_time": "2011-11-02T19:30:00",
+         "end_time": "2011-11-02T20:30:00",
+         "location": "405 Soda",
+         "id": "251089684938375"
+      },
+      {
+         "name": "Hackers\u0040Berkeley First Meeting",
+         "start_time": "2011-10-27T20:30:00",
+         "end_time": "2011-10-27T22:30:00",
+         "location": "Wozniak Lounge",
+         "id": "138571106245184"
+      },
+      {
+         "name": "Hackers\u0040Berkeley Leadership Meeting",
+         "start_time": "2011-10-18T21:00:00",
+         "end_time": "2011-10-18T22:00:00",
+         "location": "4th Floor Soda Hall",
+         "id": "161831513909060"
+      }
+   ],
+   "paging": {
+      "cursors": {
+         "after": "MTYxODMxNTEzOTA5MDYw",
+         "before": "Njc3NjI5NjA1NTgyODYy"
+      }
+   }
+}
