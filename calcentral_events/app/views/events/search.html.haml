@@ -1,2 +1,15 @@
 %h1 Events#search
 %p Find me in app/views/events/search.html.haml
+- if @events and @events.count > 0
+  %table.table-striped.table
+    %thead
+      %tr
+        - %w(Name Start End).each do |title|
+          %th #{title}
+    %tbody
+      - @events.each do |event|
+        %tr
+          %td #{event.name}
+          %td #{event.start_time}
+          %td #{event.end_time}
+
