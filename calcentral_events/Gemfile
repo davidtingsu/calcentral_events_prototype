@@ -20,6 +20,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# support for httparty
+gem "httparty", "~> 0.11.0"
+
+
+# support for miniFB
+gem 'mini_fb'
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
