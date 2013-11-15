@@ -46,6 +46,9 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
+#Layout
+gem "haml-rails"
+gem 'turbolinks'
 
 # To use debugger
 group :development, :test do
@@ -64,4 +67,4 @@ group :development, :test do
   gem 'faker'
 end
 
-gem 'turbolinks'
+
