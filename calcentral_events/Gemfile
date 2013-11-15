@@ -38,7 +38,7 @@ gem 'jquery-rails'
 # To use debugger
 group :development, :test do
   gem 'factory_girl', '~> 2.2'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', :require => false
   gem 'webrat'
   gem 'rspec-rails', '~> 2.0'
   gem 'simplecov', :require => false
@@ -49,6 +49,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'debugger'
+  gem 'faker'
 end
 
 gem 'turbolinks'

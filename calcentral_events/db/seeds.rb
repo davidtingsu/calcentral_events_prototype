@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+5.times{
+  club = FactoryGirl.create(:club_with_categories)
+  3.times{
+    FactoryGirl.create(:event_with_club, club: club)
+    }
+}

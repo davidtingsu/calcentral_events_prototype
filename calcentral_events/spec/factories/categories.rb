@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :category do
+    sequence(:name){|n| (FactoryGirl.generate(:random_word)+"_#{n}").capitalize! }
   end
 end
