@@ -1,4 +1,6 @@
 CalcentralEvents::Application.routes.draw do
+  match '/' => 'application#index', :as => :home
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
