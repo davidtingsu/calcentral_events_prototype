@@ -1,0 +1,10 @@
+.row
+  %h1 Clubs#index
+  %p Find me in app/views/clubs/index.html.haml
+  =form_tag( search_clubs_path, controller: "clubs", action: 'index', method: 'get', class: 'form') do
+    %label.checkbox-inline
+    .form-group{ role: 'form'}
+      = label_tag(:q, "Search")
+      = text_field_tag(:club, nil, class: 'form-control input-lg', placeholder: 'Club ')
+    = submit_tag("Search", class: 'btn btn-primary')
+

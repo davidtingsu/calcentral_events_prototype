@@ -16,6 +16,10 @@
           %a.navbar-brand{:href => "#"} Cal Central Events
       / /.nav-collapse
     .main
+      - if flash[:notice]
+        #notice.message= flash[:notice]
+      - elsif flash[:warning]
+        #warning.message= flash[:warning]
       .container
         = yield
     = javascript_include_tag "application", "data-turbolinks-track" => true

@@ -1,0 +1,16 @@
+%h2 Details about #{@club.name}
+
+%ul#details
+  %li
+    Name:
+    = @club.name
+
+  %li
+    Facebook URL:
+    = @club.facebook_url
+
+%h3 Description:
+
+%p#description= @club.description
+
+= link_to 'Edit', edit_club_path(@club)
