@@ -1,7 +1,7 @@
 %h1 Events#search
 %p Find me in app/views/events/search.html.haml
 - if @events and @events.count > 0
-  %table.table-striped.table
+  %table.table-striped.table#sort
     %thead
       %tr
         - %w(Name Start End).each do |title|
