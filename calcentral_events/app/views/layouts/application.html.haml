@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    \%title Bootstrap
+    %title Bootstrap
     \#{stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true}
     \#{csrf_meta_tags}
   %body
@@ -15,5 +15,7 @@
             %span.icon-bar
           %a.navbar-brand{:href => "#"} Cal Central Events
       / /.nav-collapse
-    = yield
+    .main
+      .container
+        = yield
     = javascript_include_tag "application", "data-turbolinks-track" => true

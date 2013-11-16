@@ -22,3 +22,5 @@
        url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), 
        url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
+.main{ padding: 30px 15px 40px; }
+body{ padding-top: 50px }

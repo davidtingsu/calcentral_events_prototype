@@ -1,11 +1,12 @@
-%h1 Events#index
-%p Find me in app/views/events/index.html.haml
-=form_tag( search_events_path, controller: "events", action: 'index', method: 'get', class: 'form') do
-  %label.checkbox-inline
-  .form-group{ role: 'form'}
-    = label_tag(:q, "Search for:")
-    = text_field_tag(:club, nil, class: 'form-control input-lg', placeholder: 'Club')
-  .form-group
-    = text_field_tag(:category, nil, class: 'form-control input-lg', placeholder: 'Category')
-  = submit_tag("Search", class: 'btn btn-primary')
+.row
+  %h1 Events#index
+  %p Find me in app/views/events/index.html.haml
+  =form_tag( search_events_path, controller: "events", action: 'index', method: 'get', class: 'form') do
+    %label.checkbox-inline
+    .form-group{ role: 'form'}
+      = label_tag(:q, "Search for:")
+      = text_field_tag(:club, nil, class: 'form-control input-lg', placeholder: 'Club')
+    .form-group
+      = text_field_tag(:category, nil, class: 'form-control input-lg', placeholder: 'Category')
+    = submit_tag("Search", class: 'btn btn-primary')
 
