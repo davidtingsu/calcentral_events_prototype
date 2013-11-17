@@ -33,13 +33,12 @@ class Event < ActiveRecord::Base
 
   def self.getCallinkEvents()
     events = Nokogiri::XML::Document.parse(HTTParty.get('https://callink.berkeley.edu/EventRss/EventsRss')).xpath('//item')
-    result = []
+    results = []
     events.each{ |event|
         hash = self.parse_callink_event(event)
-        pp hash
-        result << hash
-        puts "\n\n"
+        results << hash
     }
+    results
   end
 
   private
@@ -58,7 +57,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.parse_time_from_description(raw_text)
-    html=Nokogiri::HTML.parse(raw_text)
+    html=Nokogiri::HTML.parse(CGI.unescapeHTML(raw_text))
     dtstart_1 = html.css('.dtstart .value')
     dtstart_2 = html.css('.dtstart')
     dtend_1 = html.css('.dtend')
