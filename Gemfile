@@ -5,7 +5,6 @@ gem 'rails', '3.2.14'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
 
 # Gems used only for assets and not required
@@ -20,6 +19,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 # support for httparty
 gem "httparty", "~> 0.11.0"
 
@@ -51,9 +54,10 @@ gem "haml-rails"
 gem 'turbolinks'
 
 # To use debugger
+gem 'factory_girl', '~> 2.2'
+gem 'factory_girl_rails', :require => false
+gem 'faker'
 group :development, :test do
-  gem 'factory_girl', '~> 2.2'
-  gem 'factory_girl_rails', :require => false
   gem 'webrat'
   gem 'rspec-rails', '~> 2.0'
   gem 'simplecov', :require => false
@@ -64,7 +68,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'debugger'
-  gem 'faker'
 end
 
 
