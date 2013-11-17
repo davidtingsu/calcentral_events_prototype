@@ -11,6 +11,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20131115053522) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "club_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "categories", ["club_id"], :name => "index_categories_on_club_id"
+
+  create_table "clubs", :force => true do |t|
+    t.text     "description"
+    t.text     "name"
+    t.string   "facebook_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "clubs", ["category_id"], :name => "index_clubs_on_category_id"
+
+  create_table "events", :force => true do |t|
+    t.text     "description"
+    t.datetime "end_time"
+    t.datetime "start_time"
+    t.string   "facebook_id"
+    t.integer  "club_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "name"
+  end
+
+  add_index "events", ["club_id"], :name => "index_events_on_club_id"
 
 end
