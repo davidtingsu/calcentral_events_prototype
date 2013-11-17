@@ -1,5 +1,5 @@
 CalcentralEvents::Application.routes.draw do
-  match '/' => 'application#index', :as => :home
+  match '/' => 'events#index', :as => :home
   resources :events, :only => [ :index ] do
         get 'search', on: :collection
   end
