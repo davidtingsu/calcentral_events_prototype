@@ -31,7 +31,38 @@ class Event < ActiveRecord::Base
     return response_page.parsed_response[response_page.keys[0]]['id']
   end
 
-  def self.getCallinkEvents()
+  def self.saveCallinkEvents
+    self.getCallinkEvents.each{ |event_hash|
+        event = Event.find_by_callink_id(event_hash[:id])
+        hash = {}
+        %w(description name).map(&:to_sym).each{ |symbol|
+            hash[symbol] = event_hash[symbol] if event_hash[symbol].present?
+        }
+        hash[:callink_id] = event_hash[:id] if event_hash[:id].present?
+        if event.present?
+            event.update_attributes!(hash)
+        else
+            event = Event.create!(hash)
+        end
+        if event_hash[:start_time].present? and event_hash[:start_date].present?
+            d = Time.parse(event_hash[:start_date])
+            t = Time.parse(event_hash[:start_time])
+            dt = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
+            event.update_attribute(:start_time, dt)
+        else
+            event.update_attribute(:start_time, event_hash[:start_datetime])
+        end
+        end_dt = Time.parse(event_hash[:end_time])
+        if /^\d{2}:\d{2}:\d{2}$/.match(event_hash[:end_time])
+            end_dt = DateTime.new(event.start_time.year, event.start_time.month, event.start_time.day, end_dt.hour, end_dt.min, end_dt.sec)
+            event.update_attribute(:end_time, end_dt)
+        else
+            event.update_attribute(:end_time, end_dt)
+        end
+    }
+  end
+
+  def self.getCallinkEvents
     events = Nokogiri::XML::Document.parse(HTTParty.get('https://callink.berkeley.edu/EventRss/EventsRss')).xpath('//item')
     results = []
     events.each{ |event|
