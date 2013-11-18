@@ -58,6 +58,7 @@ gem 'factory_girl', '~> 2.2'
 gem 'factory_girl_rails', :require => false
 gem 'faker'
 group :development, :test do
+  gem 'simplecov'
   gem 'webrat'
   gem 'rspec-rails', '~> 2.0'
   gem 'simplecov', :require => false
