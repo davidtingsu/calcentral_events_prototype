@@ -49,3 +49,6 @@ Then /^I should see events for (.+) "(.*)"$/ do |model_type, ids|
       end
 end
 
+Then(/^the facebook url for Club_(\d+) should be "(.*?)"$/) do |arg1, arg2|
+  assert page.body.include?(arg2)
+end
