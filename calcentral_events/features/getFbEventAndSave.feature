@@ -1,6 +1,6 @@
 Feature: Getting facebook events for an url
 
-   As a club administrator of a club on Calcentral
+   As a club administrator on Calcentral
    So that I can get facebook events published on Calcentral
    I want to be able to use urls to get facebook events on Calcentral
 

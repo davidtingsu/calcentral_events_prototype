@@ -20,11 +20,16 @@ class Event < ActiveRecord::Base
 
 
   def self.getFacebookEvents(facebook_page_id)
-     events = MiniFB.fql(@@access_token,"SELECT eid, name, location, description, start_time, end_time, timezone FROM event where creator = #{CGI.escape(facebook_page_id)}") if facebook_page_id.present?
-     events.each do |e|
+     #eventsArray = []
+      MiniFB.fql(@@access_token,"SELECT eid, name, location, description, start_time, end_time, timezone FROM event where creator = #{CGI.escape(facebook_page_id)}") if facebook_page_id.present?
+  
+     #events.each do |e|
         
-         Event.create!(:name => e['name'], :description => e['description'], :facebook_id => e['eid'], :start_time => e['start_time'], :end_time => e['end_time'])
-     end
+      #   newEvent = Event.create!(:name => e['name'], :description => e['description'], :start_time => e['start_time'], :end_time => e['end_time'])
+#	 eventsArray.push(newEvent)
+ #    end
+
+  #   return eventsArray
   end
 
 
@@ -40,8 +45,15 @@ class Event < ActiveRecord::Base
   end
 
   def self.responseEventObject(uri)
+    if uri == ""
+        return ""
+    end
+    
     xml = URI.parse(uri).read
     doc = Nokogiri::XML(xml)
+    hashTable = parsingHtmlAndReturnTimes
+    eventsArray = []
+    
        
     doc.xpath('//item').each do |e|
       
@@ -51,33 +63,41 @@ class Event < ActiveRecord::Base
       title, date = title_date_array[0], title_date_array[1]
       description = ActionView::Base.full_sanitizer.sanitize((e/'./description').text)
       event_id = (e/'./link').text.split("?")[1].split("&")[0].split("=")[1]
-      
-      start_end_time = self.parsingHtmlAndReturnTimes(event_id)
+      start_end_time = hashTable[event_id]
+     
       
       start_time = start_end_time[0]
       end_time = start_end_time[1]   
       
-      Event.create!(:name => title, :description => description, :facebook_id => event_id, :start_time => start_time, :end_time => end_time)
+      
+      new_event = Event.create!(:name => title, :description => description, :facebook_id => event_id, :start_time => start_time, :end_time => end_time)
+      eventsArray.push(new_event)
+      
     
     end
+    #debugger
+    return eventsArray
   end
 
-  def self.parsingHtmlAndReturnTimes(event_id)
+
+  def self.parsingHtmlAndReturnTimes
     htmlUri =  "http://events.berkeley.edu/index.php/html/sn/pubaff/type/day/tab/all_events.html"
     doc = Nokogiri::HTML(open(htmlUri))
-    puts event_id
   
-    counter = 0    
+    counter = 0
+    hashTable = {}
+  
     doc.css('div.event a').each do |link|
+      arr = []
 
       if (link['href'][0] == "?")    
 
-          if (link['href'].split("&")[0].split("=")[1] == event_id && link['href'].split("#")[1] != "exceptiondates")  
+          if (link['href'].split("#")[1] != "exceptiondates")  
              
               firstComma = doc.css('div.event p')[counter].text.split("|")[1].gsub(/\s/, '').index(",")
               
               secondComma = doc.css('div.event p')[counter].text.split("|")[1].gsub(/\s/, '').sub(",", " ").index(",")
-              puts secondComma
+      
               if (secondComma != nil && firstComma != nil)
              
                   commaDivided = doc.css('div.event p')[counter].text.split("|")[1].gsub(/\s/, '').gsub(/\W/, " ").insert(firstComma + 5, ",").insert(secondComma + 6, ",")
@@ -107,19 +127,20 @@ class Event < ActiveRecord::Base
                
               end
               #debugger
-              return start_time, end_time
-
-          elsif (link['href'].split("&")[0].split("=")[1] != event_id && link['href'].split("#")[1] == "exceptiondates")
-              next
-      
-          else
+              hashTable[link['href'].split("&")[0].split("=")[1]] = arr.push(start_time, end_time)
               counter = counter + 1
+              
+             
+
+          elsif (link['href'].split("#")[1] == "exceptiondates")
+              next
+ 
           end
       end
 
     end
-
-    return start_time, end_time 
+    #debugger
+    return hashTable 
   end
 
 end 
