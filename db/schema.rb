@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131115053522) do
+ActiveRecord::Schema.define(:version => 20131116073910) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(:version => 20131115053522) do
     t.text     "name"
     t.string   "facebook_id"
     t.integer  "category_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "facebook_url"
   end
 
   add_index "clubs", ["category_id"], :name => "index_clubs_on_category_id"
