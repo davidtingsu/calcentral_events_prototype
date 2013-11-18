@@ -27,7 +27,7 @@ Scenario: Edit Invalid Facebook URl
 	When I go to the club homepage
 	When I follow "Edit"
 	Then I should see "Submit Event to CalCentral"
-	When I fill in "Facebook URL" with "https://www.facebook.com/groups/invalid"
+	When I fill in "Facebook URL" with "https://www.google.com/groups/"
 	And I press "Submit Events"
-	Then I should see "Invalid URL"
+	Then I should see "events were not added!"
 	
