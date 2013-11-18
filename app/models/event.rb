@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
 
   scope :chronological_order, order("start_time ASC")
   scope :reverse_chronological_order, order("start_time DESC")
-  attr_accessible :description, :end_time, :name, :start_time, :facebook_id
+  attr_accessible :description, :end_time, :name, :start_time, :facebook_id, :callink_id
   belongs_to :club
   has_many :categories, :through => :club, :source => :categories	
   def self.get_facebook_group_events(graph_id, user_access_token)
