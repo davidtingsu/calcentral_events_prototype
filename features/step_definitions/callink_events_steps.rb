@@ -16,6 +16,6 @@ When /^I get a (\d+) when parsing callink events with message "([^"]*)"$/ do |st
     FakeWeb.register_uri(:get, 'https://callink.berkeley.edu/EventRss/EventsRss',
                          :status => [status_code, message])
 end
-Then /^there should be (\d+) events/ do |count|
+Then /^there should be (\d+) events$/ do |count|
     expect(Event.count).to eq(count.to_i)
 end
