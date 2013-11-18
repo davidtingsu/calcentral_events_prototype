@@ -1,0 +1,15 @@
+-# edit.html.haml using partial
+
+%h1 Submit Event to CalCentral
+
+= form_tag club_path(@club), :method => :put do
+
+  = label :club, :name, 'Name'
+  = text_field :club, 'name'
+
+
+  = label :club, :facebook_url, 'Facebook URL'
+  = text_field :club, 'facebook_url'
+
+
+  = submit_tag 'Submit Events to CalCentral'

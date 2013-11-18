@@ -1,7 +1,11 @@
 CalcentralEvents::Application.routes.draw do
   match '/' => 'events#index', :as => :home
+  match '/' => 'application#index', :as => :home
+  resources :clubs do
+    get 'search', on: :collection
+  end
   resources :events, :only => [ :index ] do
-        get 'search', on: :collection
+    get 'search', on: :collection
   end
 
   # The priority is based upon order of creation:
