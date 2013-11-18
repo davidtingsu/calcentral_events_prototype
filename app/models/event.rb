@@ -31,6 +31,47 @@ class Event < ActiveRecord::Base
     return response_page.parsed_response[response_page.keys[0]]['id']
   end
 
+  def self.getCallinkEvents()
+    events = Nokogiri::XML::Document.parse(HTTParty.get('https://callink.berkeley.edu/EventRss/EventsRss')).xpath('//item')
+    results = []
+    events.each{ |event|
+        hash = self.parse_callink_event(event)
+        results << hash
+    }
+    results
+  end
+
+  private
+  def self.parse_callink_event(event)
+        hash = parse_time_from_description(event.xpath('.//description').inner_text)
+        link = event.xpath('.//link').inner_text
+        hash.merge({
+            title: event.xpath('.//title').inner_text,
+            category: event.xpath('.//category').inner_text,
+            groupname: (link.scan(/organization\/(.*?)\//).flatten[0] if link.present? && link.scan(/organization\/(.*?)\//).count >= 1 ),
+            id: (/details\/(?<id>\d+)/.match(link)['id']   if /details\/(?<id>\d+)/.match(link)),
+            link: link,
+            description: event.xpath('.//description').inner_text,
+
+        })
+  end
+
+  def self.parse_time_from_description(raw_text)
+    html=Nokogiri::HTML.parse(CGI.unescapeHTML(raw_text))
+    dtstart_1 = html.css('.dtstart .value')
+    dtstart_2 = html.css('.dtstart')
+    dtend_1 = html.css('.dtend')
+    location = html.css('.location')
+    {
+        start_datetime: (dtstart_2[0]['title'] if dtstart_2.count >=1),
+        start_date: (dtstart_1[0]['title'] if dtstart_1.count >= 1),
+        start_time:  (dtstart_1[1]['title'] if dtstart_1.count >= 2),
+
+        end_time: (dtend_1[0]['title'] if dtend_1.count >= 1),
+        location: (location[0].inner_text if location.count > 0)
+    }
+  end
+
      
 end 
 
