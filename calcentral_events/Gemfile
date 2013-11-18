@@ -52,6 +52,7 @@ gem 'turbolinks'
 
 # To use debugger
 group :development, :test do
+  gem 'simplecov'
   gem 'factory_girl', '~> 2.2'
   gem 'factory_girl_rails', :require => false
   gem 'webrat'
