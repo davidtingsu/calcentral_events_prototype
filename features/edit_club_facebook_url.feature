@@ -22,3 +22,12 @@ Scenario: Edit Facebook URl
 	And I press "Submit Events"
 	Then I should see "events were successfully added!!!"
 	And the facebook url for Club_2 should be "https://www.facebook.com/groups/Club_2/events/"
+
+Scenario: Edit Invalid Facebook URl
+	When I go to the club homepage
+	When I follow "Edit"
+	Then I should see "Submit Event to CalCentral"
+	When I fill in "Facebook URL" with "https://www.facebook.com/groups/invalid"
+	And I press "Submit Events"
+	Then I should see "Invalid URL"
+	
