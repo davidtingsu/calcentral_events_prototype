@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(:version => 20131115053522) do
 
   create_table "events", :force => true do |t|
     t.text     "description"
-    t.datetime "end_time"
-    t.datetime "start_time"
+    t.string   "end_time"
+    t.string   "start_time"
     t.string   "facebook_id"
     t.integer  "club_id"
     t.datetime "created_at",  :null => false
