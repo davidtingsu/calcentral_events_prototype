@@ -12,10 +12,9 @@ class Event < ActiveRecord::Base
     MiniFB.get(user_access_token, graph_id , :type => "events")
   end
 
-
-
   @@access_token = "173006739573053|DPlwPfobC-caWfyYKw5rU-aKrjM"
-
+  @@daysRegex = /Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|every day|every|&/
+  @@monthRegex = /(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2} \d{4}|(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}|\d{1,2} \d{4}|(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}/
 
   def self.getFacebookEvents(facebook_page_id)
      MiniFB.fql(@@access_token,"SELECT eid, name, location, description, start_time, end_time, timezone FROM event where creator = #{CGI.escape(facebook_page_id)}") if facebook_page_id.present?
@@ -106,102 +105,75 @@ class Event < ActiveRecord::Base
     return "http://events.berkeley.edu/index.php/rss/sn/pubaff/type/day/tab/all_events.html"
   end
 
-  def self.responseEventObject(uri)
-    if uri == ""
+  def self.makeXmlDoc(uri)
+    if uri != "http://events.berkeley.edu/index.php/rss/sn/pubaff/type/day/tab/all_events.html"
         return ""
     end
     
     xml = URI.parse(uri).read
-    doc = Nokogiri::XML(xml)
-    hashTable = parsingHtmlAndReturnTimes
-    eventsArray = []
-    
-       
-    doc.xpath('//item').each do |e|
-      
-      title_date = (e/'./title').text.to_s
-
-      title_date_array = title_date.split(",")
-      title, date = title_date_array[0], title_date_array[1]
-      description = ActionView::Base.full_sanitizer.sanitize((e/'./description').text)
-      event_id = (e/'./link').text.split("?")[1].split("&")[0].split("=")[1]
-      start_end_time = hashTable[event_id]
-     
-      
-      start_time = start_end_time[0]
-      end_time = start_end_time[1]   
-      
-      
-      new_event = Event.create!(:name => title, :description => description, :facebook_id => event_id, :start_time => start_time, :end_time => end_time)
-      eventsArray.push(new_event)
-      
-    
-    end
-    return eventsArray
+    return Nokogiri::XML(xml) #return doc
   end
 
-
-  def self.parsingHtmlAndReturnTimes
-    htmlUri =  "http://events.berkeley.edu/index.php/html/sn/pubaff/type/day/tab/all_events.html"
-    doc = Nokogiri::HTML(open(htmlUri))
-  
-    counter = 0
-    hashTable = {}
-  
-    doc.css('div.event a').each do |link|
-      arr = []
-
-      if (link['href'][0] == "?")    
-
-          if (link['href'].split("#")[1] != "exceptiondates")  
-             
-              firstComma = doc.css('div.event p')[counter].text.split("|")[1].gsub(/\s/, '').index(",")
-              
-              secondComma = doc.css('div.event p')[counter].text.split("|")[1].gsub(/\s/, '').sub(",", " ").index(",")
-      
-              if (secondComma != nil && firstComma != nil)
-             
-                  commaDivided = doc.css('div.event p')[counter].text.split("|")[1].gsub(/\s/, '').gsub(/\W/, " ").insert(firstComma + 5, ",").insert(secondComma + 6, ",")
-              elsif (secondComma == nil && firstComma != nil)
-                
-                  commaDivided = doc.css('div.event p')[counter].text.split("|")[1].gsub(/\s/, '').gsub(/\W/, " ").insert(firstComma + 5, ",")
-                
-              elsif (secondComma == nil && firstComma == nil)
-                      commaDivided = doc.css('div.event p')[counter].text.split("|")[1].gsub(/\s/, '').gsub(/\W/, " ")
-             
-              end
-
-              s_time = commaDivided.split(",")[0]
-              e_time = commaDivided.split(",")[1]
-            
-              if ((doc.css('div.event p')[counter].text.split("|")[2].delete "\t" "\n").split("-").size == 2)
-                  start_time = s_time + " " + (doc.css('div.event p')[counter].text.split("|")[2].delete "\t" "\n").split("-")[0]
-                  if (e_time != nil)
-                    end_time = e_time + " " + (doc.css('div.event p')[counter].text.split("|")[2].delete "\t" "\n").split("-")[1]
-                  else
-                    end_time = (doc.css('div.event p')[counter].text.split("|")[2].delete "\t" "\n").split("-")[1]
-                  end
-       
-              elsif ((doc.css('div.event p')[counter].text.split("|")[2].delete "\t" "\n").split("-").size == 1)
-                  start_time = s_time + " " + (doc.css('div.event p')[counter].text.split("|")[2].delete "\t" "\n").split("-")[0]
-                  end_time = e_time
-               
-              end
-              hashTable[link['href'].split("&")[0].split("=")[1]] = arr.push(start_time, end_time)
-              counter = counter + 1
-              
-             
-
-          elsif (link['href'].split("#")[1] == "exceptiondates")
-              next
+  def self.savingEventsBerkeley(doc, dateTimeTable)
  
-          end
-      end
-
+    allSavedEvents = []
+    doc.xpath('//item').each do |item|
+      
+      name = (item/'./title').text.to_s.split(",")[0]
+      description = ActionView::Base.full_sanitizer.sanitize((item/'./description').text)
+      event_id = /\d{5}/.match((item/'./link').text)[0]
+      
+      start_time = dateTimeTable[event_id][0]
+      end_time = dateTimeTable[event_id][1] 
+      
+      
+      newEvent = Event.create!(:name => name, :description => description, :facebook_id => event_id, :start_time => start_time, :end_time => end_time)
+      allSavedEvents.push(newEvent)
+     
     end
-    return hashTable 
+
+    return allSavedEvents
   end
 
+
+  def self.parsingHtmlAndReturnDateTimes
+    
+    doc = Nokogiri::HTML(open("http://events.berkeley.edu/index.php/html/sn/pubaff/type/day/tab/all_events.html"))
+  
+    dateTimeTable = {}
+   
+    
+    doc.css("div.event").map do |eventNode|
+      dates = []
+      endDate, endTime = nil, nil
+      link = eventNode.at_css("h3 a")['href']
+      eventID = /\d{5}/.match(link)[0]
+      dateTime = eventNode.at_css('p').text.gsub(/\s/, '')
+      days = dateTime.gsub(/\W/, " ").scan(@@daysRegex).join(" ")
+  
+      startTime = dateTime.split("|")[2].split("-")[0]
+      if (dateTime.split("|")[2].split("-").size != 1)
+        endTime = dateTime.split("|")[2].split("-")[1]
+      end
+      
+      matching = @@monthRegex.match(dateTime.gsub(/\W/, " "))
+      startDate = matching[0]
+     
+      if (@@monthRegex.match(matching.post_match) != nil)
+        endDate = @@monthRegex.match(matching.post_match)[0]
+      end
+      start = startDate + " " + startTime + " " + days
+     
+      if (endDate != nil && endTime != nil)
+        ending = endDate + " " + endTime
+      end
+      ending = endTime
+      dateTimeTable[eventID] = dates.push(start,ending)
+
+    end
+    return dateTimeTable
+  end
+  
 end 
 
 
