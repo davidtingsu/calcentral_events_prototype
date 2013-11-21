@@ -1,25 +1,50 @@
-Feature: Sort events by event name and date
+Feature: display list of movies sorted by different criteria
+ 
+  As an CalCentral user
+  So that I can quickly browse events based on my preferences
+  I want to see events sorted by name or date
 
-	As a user of CalCentral
-	so that I can better find events
-	I want to be able sort the events by name, and date
+Background: events have been added to database
+  
+  Given the following events exist:
+  | Name                    | Start                     | End                     |
+  | Event_1                 | 2013-11-21 23:23:18 UTC   | 2013-11-22 00:23:18 UTC |
+  | Event_2                 | 2013-11-22 23:23:18 UTC   | 2013-11-22 00:23:18 UTC |
+  | Event_3                 | 2013-11-23 23:23:18 UTC   | 2013-11-22 00:23:18 UTC |
+  | Event_4                 | 2013-11-24 23:23:18 UTC   | 2013-11-22 00:23:18 UTC |
+  | Event_5                 | 2013-11-25 23:23:18 UTC   | 2013-11-22 00:23:18 UTC |
+  | Event_6                 | 2013-11-26 23:23:18 UTC   | 2013-11-22 00:23:18 UTC |
+  | Event_7                 | 2013-11-27 23:23:18 UTC   | 2013-11-22 00:23:18 UTC |
+  | Event_8                 | 2013-11-28 23:23:18 UTC   | 2013-11-22 00:23:18 UTC |
+  | Event_9                 | 2013-11-29 23:23:18 UTC   | 2013-11-22 00:23:18 UTC |
 
-	Background: events have been added to database
+  And I am on the RottenPotatoes home page
+
+Scenario: sort events alphabetically
+  When I follow "Name"
+    Then I should be on the search page
+    And I should see "Event_1"
+    And I should see "Event_2"
+    And I should see "Event_3"
+    And I should see "Event_4"
+    And I should see "Event_5"
+    And I should see "Event_6"
+    And I should see "Event_7"
+    And I should see "Event_8"
+    And I should see "Event_9"
 
 
-	Scenario: Sort events by name
-     Given that there are events 
-     When I click the "Event Name"
-     Then the events should be in alphabet order
+Scenario: sort movies in increasing order of release date
+  When I follow "Start"
+  Then I should be on the search page
+    And I should see "2013-11-21 23:23:18 UTC"
+    And I should see "2013-11-22 23:23:18 UTC"
+    And I should see "2013-11-23 23:23:18 UTC"
+    And I should see "2013-11-24 23:23:18 UTC"
+    And I should see "2013-11-25 23:23:18 UTC"
+    And I should see "2013-11-26 23:23:18 UTC"
+    And I should see "2013-11-27 23:23:18 UTC"
+    And I should see "2013-11-28 23:23:18 UTC"
+    And I should see "2013-11-29 23:23:18 UTC"
 
-    Scenario: Sort events by data
-     Given that there are events 
-     When I click the "Date & time"
-     Then the events should be in order by oldest to newest
 
-   Scenario: No events to sort
-     Given that there are no events 
-     When I click the "Events"
-     Then there should be 0 events to sort
-
-       
