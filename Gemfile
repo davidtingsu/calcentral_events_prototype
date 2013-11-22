@@ -75,4 +75,9 @@ group :development, :test do
   gem 'debugger'
 end
 
+#Test JS
+group :test do
+  gem "selenium-webdriver", "~> 2.35.1"
+  gem 'capybara-webkit'
+end
 
