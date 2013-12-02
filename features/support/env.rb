@@ -45,7 +45,7 @@ Capybara.default_wait_time = 10
 Capybara.register_driver :selenium_with_long_timeout do |app|
     #https://gist.github.com/msgehard/922296
     client = Selenium::WebDriver::Remote::Http::Default.new
-    client.timeout = 10
+    client.timeout = 20
     Capybara::Selenium::Driver.new(app, :browser => :firefox, :http_client => client)
     #@session = Capybara::Session.new(:selenium,app)
     #capybara_driver = Capybara::Selenium::Driver.new(app, :browser => :firefox)#, :http_client => client)
