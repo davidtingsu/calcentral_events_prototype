@@ -124,19 +124,15 @@ Then /^(?:|I )should not see \/([^\/]*)\/$/ do |regexp|
   assert page.has_no_xpath?('//*', :text => regexp)
 end
 
-Then /^the "([^"]*)" field(?: within (.*))? should contain "([^"]*)"$/ do |field, parent, value|
+Then /^the "([^"]*)" field(?: within (.*))? should (.*)\s?contain "([^"]*)"$/ do |field, parent, should_not, value|
   with_scope(parent) do
     field = find_field(field)
     field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    assert_match(/#{value}/, field_value)
-  end
-end
-
-Then /^the "([^"]*)" field(?: within (.*))? should not contain "([^"]*)"$/ do |field, parent, value|
-  with_scope(parent) do
-    field = find_field(field)
-    field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    assert_no_match(/#{value}/, field_value)
+    unless should_not
+        assert_match(/#{value}/, field_value)
+    else
+        assert_no_match(/#{value}/, field_value)
+    end
   end
 end
 
