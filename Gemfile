@@ -73,6 +73,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'debugger'
+  gem 'dotenv-rails', '~> 0.9.0'
 end
 
 #Test JS
