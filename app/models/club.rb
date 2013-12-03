@@ -65,6 +65,9 @@ class Club < ActiveRecord::Base
   end
 
   def self.save_callink_org_hash(hash)
+    permalink_match = /organization\/(.*)/.match(hash['ProfileUrl'])
+    callink_permalink ||= permalink_match[1] if permalink_match
+
     club ||= Club.find_by_callink_id(hash['OrganizationId'])
     club ||= Club.create({ callink_id: hash['OrganizationId'], description: hash['Description'], name: hash['Name'], facebook_url: hash['FacebookUrl']})
 
@@ -72,7 +75,8 @@ class Club < ActiveRecord::Base
         description: hash['Description'],
         name: hash['Name'],
         facebook_url: hash['FacebookUrl'],
-        callink_id: hash['OrganizationId']
+        callink_id: hash['OrganizationId'],
+        callink_permalink: callink_permalink
     })
 
     categories =  Club.parse_categories(hash)
