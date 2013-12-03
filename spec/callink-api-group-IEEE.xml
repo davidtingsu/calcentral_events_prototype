@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResultOfOrganization xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PageNumber>1</PageNumber>
+  <PageSize>100</PageSize>
+  <TotalItems>1</TotalItems>
+  <TotalPages>1</TotalPages>
+  <Items>
+    <Organization>
+      <OrganizationId>91278</OrganizationId>
+      <Name>IEEE Student Branch</Name>
+      <Status>Active</Status>
+      <ShortName />
+      <Summary>Student chapter of the Institute of Electrical and Electronic Engineers</Summary>
+      <Description>&lt;p&gt;Established in 1912, the UC Berkeley IEEE student branch is part of Region 6 (US - West) of the IEEE national branch. As one of the most active EECS student organization on campus, we aim to promote professional awareness, encourage academic growth, and organize social activities within the EECS community.&lt;/p&gt;</Description>
+      <AddressStreet1 />
+      <AddressStreet2 />
+      <AddressCity />
+      <AddressStateProvince />
+      <AddressZipPostal />
+      <PhoneNumber />
+      <Extension />
+      <FaxNumber />
+      <Email />
+      <ExternalWebsite />
+      <FacebookUrl />
+      <TwitterUrl />
+      <FlickrFeedUrl />
+      <YoutubeChannelUrl />
+      <GoogleCalendarUrl />
+      <ProfileImageUrl />
+      <ProfileUrl>callink.berkeley.edu/organization/ieeestudentbranch</ProfileUrl>
+      <DirectoryVisibility>Visible</DirectoryVisibility>
+      <MembershipType>Open</MembershipType>
+      <TypeId>1243</TypeId>
+      <TypeName>Registered Student Organizations</TypeName>
+      <ParentId>45853</ParentId>
+      <ParentName>RSO - Registered Student Organization</ParentName>
+      <PrimaryContactId />
+      <PrimaryContactName />
+      <PrimaryContactCampusEmail />
+      <Categories>
+        <Category>
+          <CategoryId>5098</CategoryId>
+          <CategoryName>Academic Student Organizations</CategoryName>
+        </Category>
+      </Categories>
+      <CustomFields />
+    </Organization>
+  </Items>
+</ResultOfOrganization>

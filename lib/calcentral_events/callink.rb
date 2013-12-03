@@ -20,8 +20,8 @@ module Callink
             status: nil,
             excludeHiddenOrganizations: nil,
             organizationId: nil,
-            app_id: ENV['CALLINK_API_KEY'],
-            app_key: ENV['CALLINK_APP_ID'],
+            app_id: ENV['CALLINK_APP_ID'],
+            app_key: ENV['CALLINK_API_KEY'],
         }
       end
   end
