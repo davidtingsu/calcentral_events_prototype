@@ -6,9 +6,23 @@ class Event < ActiveRecord::Base
 
   scope :chronological_order, order("start_time ASC")
   scope :reverse_chronological_order, order("start_time DESC")
+  scope :facebook, ->(){ where("facebook_id IS NOT NULL") }
+  scope :callink, ->(){ where("callink_id IS NOT NULL") }
   attr_accessible :description, :end_time, :name, :start_time, :facebook_id, :callink_id
   belongs_to :club
   has_many :categories, :through => :club, :source => :categories	
+
+  def is_callink?
+    callink_id.present?
+  end
+
+  def is_facebook?
+    facebook_id.present?
+  end
+
+  def callink_permalink
+    "https://callink.berkeley.edu/events/details/#{callink_id}" if callink_id
+  end
   def self.get_facebook_group_events(graph_id, user_access_token)
     MiniFB.get(user_access_token, graph_id , :type => "events")
   end
