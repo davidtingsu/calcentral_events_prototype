@@ -88,7 +88,7 @@ class Club < ActiveRecord::Base
   end
   def update_or_create_facebook_event(event_hash, only_future = true)
     event ||= Event.find_by_facebook_id(event_hash.eid)
-    event ||= Event.new(:name => event_hash.name, :start_time => event_hash.start_time, :end_time => event_hash.end_time, :description => event_hash.description)
+    event ||= Event.new(:name => event_hash.name, :start_time => event_hash.start_time, :end_time => event_hash.end_time, :description => event_hash.description, :facebook_id => event_hash.eid)
     events << event and save! if (only_future and event.start_time.future?) or ! only_future
   end
 
