@@ -31,7 +31,7 @@ gem "httparty", "~> 0.11.0"
 gem "fakeweb", "~> 1.3.0"
 
 # allows open('http://...') to return body
-gem "rest-open-uri", "~> 1.0.0"
+gem "rest-open-uri", "~> 1.0.0", :require => false
 
 # XML parser
 gem "nokogiri", "~> 1.6.0"

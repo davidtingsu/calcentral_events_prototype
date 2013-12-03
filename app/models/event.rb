@@ -1,3 +1,4 @@
+require 'rest-open-uri'
 class Event < ActiveRecord::Base 
   #http://guides.rubyonrails.org/active_record_querying.html#passing-in-arguments
   scope :find_by_category, ->(*categories){ includes(:club => :categories).where("categories.name IN (:names)", :names => categories)}
