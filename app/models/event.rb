@@ -41,8 +41,11 @@ class Event < ActiveRecord::Base
         if event.present?
             event.update_attributes!(hash)
         else
-            event = Event.create!(hash)
+            event = Event.new(hash)
         end
+        club ||= Club.find_by_callink_permalink!(event_hash[:groupname])
+        club.events << event and club.save
+        event.save!
         if event_hash[:start_time].present? and event_hash[:start_date].present?
             d = Time.parse(event_hash[:start_date])
             t = Time.parse(event_hash[:start_time])
