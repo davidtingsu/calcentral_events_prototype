@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 def fake_search(name, payload)
-    url = URI.escape("https://api.berkeley.edu/callink/CalLinkOrganizations?name=#{name}&type=&category=&status=&excludeHiddenOrganizations=&organizationId=&app_id=#{ENV['CALLINK_APP_ID']}&app_key=#{ENV['CALLINK_API_KEY']}")
+    url = URI.escape("http://api.berkeley.edu/callink/CalLinkOrganizations?name=#{name}&type=&category=&status=&excludeHiddenOrganizations=&organizationId=&app_id=#{ENV['CALLINK_APP_ID']}&app_key=#{ENV['CALLINK_API_KEY']}")
     FakeWeb.register_uri(:get, url, :body =>  payload, :content_type => 'text/xml; charset=utf-8')
 end
 

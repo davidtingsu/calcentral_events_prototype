@@ -2,7 +2,7 @@ require 'httparty'
 module Callink
   module Organization
       extend self
-      @@base_url="https://api.berkeley.edu/callink/CalLinkOrganizations" # https://apis-dev.berkeley.edu/callink/CalLinkOrganizations
+      @@base_url="http://api.berkeley.edu/callink/CalLinkOrganizations" # http://apis-dev.berkeley.edu/callink/CalLinkOrganizations
       def search(params = {})
         HTTParty.get(search_url(params))
       end
