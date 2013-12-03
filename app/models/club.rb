@@ -7,8 +7,9 @@ class Club < ActiveRecord::Base
   end
 
   def self.sync_callink_groups
-    orgs = parse_callink_orgs(Callink::Organization.search)
-    orgs.each{ |org| save_callink_org_hash(org) }
+    response = Callink::Organization.search
+    orgs = parse_callink_orgs(response) if response.ok?
+    orgs.each{ |org| save_callink_org_hash(org) } if orgs.present?
   end
 
   def create_or_update_category(attributes)
