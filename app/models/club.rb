@@ -6,6 +6,13 @@ class Club < ActiveRecord::Base
   scope :facebook, ->(){ where("facebook_id IS NOT NULL") }
   scope :callink, ->(){ where("callink_id IS NOT NULL") }
 
+  validates :facebook_url, :format => URI::regexp(%w(http https)), :if => lambda{|club| club.facebook_url.present? } #http://stackoverflow.com/a/7168125/1123985
+  before_validation do
+      if self.facebook_url.present? and (new_record? || self.facebook_url_changed?)
+        self.facebook_url = URI::regexp(%w(http https)).match(facebook_url)[0]
+      end
+  end
+
   def is_facebook?
     facebook_id.present?
   end

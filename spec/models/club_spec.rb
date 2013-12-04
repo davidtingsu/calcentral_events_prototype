@@ -6,6 +6,13 @@ def fake_search(name, payload)
 end
 
 describe Club do
+    context "before_validation" do
+        let(:club_with_duplicate_urls){ Club.new(:facebook_url => "http://facebook.com/ucbcalibetas http://facebook.com/ucbcalibetas http://facebook.com/ucbcalibetas http://facebook.com/ucbcalibetas http://facebook.com/ucbcalibetas") }
+        it "cleans facebook_url" do
+            club_with_duplicate_urls.valid?
+            expect(club_with_duplicate_urls.facebook_url).to eq("http://facebook.com/ucbcalibetas")
+        end
+    end
     all = File.open( Rails.root.join("spec/callink-api-group-all.xml"), "r").read
     let(:all){ all }
     fake_search( nil, all)
