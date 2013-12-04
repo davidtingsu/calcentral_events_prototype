@@ -19,3 +19,11 @@ end
 Then /^there should be (\d+) events$/ do |count|
     expect(Event.count).to eq(count.to_i)
 end
+
+And /^clubs from todays rss feed exist$/ do
+    FakeWeb.register_uri(:get, 'https://callink.berkeley.edu/EventRss/EventsRss', :body => File.open(Rails.root.join('spec','EventsRss.rss'), "r").read)
+    Event.getCallinkEvents.each{|event_hash|
+        club ||= Club.find_by_callink_permalink event_hash[:groupname]
+        club ||= Club.create(:callink_permalink => event_hash[:groupname])
+    }
+end

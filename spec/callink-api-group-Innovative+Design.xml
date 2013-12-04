@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResultOfOrganization xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PageNumber>1</PageNumber>
+  <PageSize>100</PageSize>
+  <TotalItems>1</TotalItems>
+  <TotalPages>1</TotalPages>
+  <Items>
+    <Organization>
+      <OrganizationId>46493</OrganizationId>
+      <Name>Innovative Design</Name>
+      <Status>Active</Status>
+      <ShortName>InnoD</ShortName>
+      <Summary>Innovative Design is a team of graphic designers and photographers that provides services to campus organizations and local businesses.</Summary>
+      <Description>&lt;p&gt;&lt;span&gt;Innovative Design is a family of graphic designers and photographers at the University of California, Berkeley. We are creative individuals who are continuously evolving by collaborating, inspiring and educating one another. It is through our different artistic tools and talents that we are able to create novel photography and designs for our peers and professional clients.&lt;/span&gt;&lt;/p&gt;</Description>
+      <AddressStreet1>Hearst Gym 2G</AddressStreet1>
+      <AddressStreet2 />
+      <AddressCity>Berkeley</AddressCity>
+      <AddressStateProvince>CA</AddressStateProvince>
+      <AddressZipPostal>94720</AddressZipPostal>
+      <PhoneNumber />
+      <Extension />
+      <FaxNumber />
+      <Email />
+      <ExternalWebsite>http://www.innod.net/</ExternalWebsite>
+      <FacebookUrl>https://www.facebook.com/InnovativeDesignUCB</FacebookUrl>
+      <TwitterUrl>https://twitter.com/InnoDatCAL</TwitterUrl>
+      <FlickrFeedUrl />
+      <YoutubeChannelUrl />
+      <GoogleCalendarUrl />
+      <ProfileImageUrl>callink.berkeley.edu/images/W170xL170/0/noshadow/Profile/e222a405fb544affa87a8ce1f9683bb0.jpg</ProfileImageUrl>
+      <ProfileUrl>callink.berkeley.edu/organization/innovativedesign</ProfileUrl>
+      <DirectoryVisibility>Visible</DirectoryVisibility>
+      <MembershipType>Open</MembershipType>
+      <TypeId>1245</TypeId>
+      <TypeName>ASUC Government Program</TypeName>
+      <ParentId>45868</ParentId>
+      <ParentName>ASUC Student Government</ParentName>
+      <PrimaryContactId />
+      <PrimaryContactName />
+      <PrimaryContactCampusEmail />
+      <Categories>
+        <Category>
+          <CategoryId>5102</CategoryId>
+          <CategoryName>ASUC Government Programs</CategoryName>
+        </Category>
+      </Categories>
+      <CustomFields />
+    </Organization>
+  </Items>
+</ResultOfOrganization>
