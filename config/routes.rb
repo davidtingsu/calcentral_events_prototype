@@ -6,6 +6,11 @@ CalcentralEvents::Application.routes.draw do
   resources :events, :only => [ :index ] do
     get 'search', on: :collection
   end
+  namespace :api do
+    get 'events' => 'Events#index', :as => :events
+    get 'event/:id' => 'Events#show', :as => :events
+    get 'club/:id' => 'Clubs#show', :as => :club
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
