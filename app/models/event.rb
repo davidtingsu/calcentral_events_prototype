@@ -8,6 +8,16 @@ class Event < ActiveRecord::Base
   scope :reverse_chronological_order, order("start_time DESC")
   scope :facebook, ->(){ where("facebook_id IS NOT NULL") }
   scope :callink, ->(){ where("callink_id IS NOT NULL") }
+
+  scope :future, ->(){ where('start_time > :now', { :now => Time.now }) }
+  scope :past, ->(){ where('start_time < :now', { :now => Time.now }) }
+  scope :now, ->(){ where('start_time <= :now AND end_time >= :now', { :now => Time.now }) }
+  scope :between, ->(date_or_dt_start, date_or_dt_end){ where(:start_time => date_or_dt_start..date_or_dt_end) }
+  scope :on_day, ->(date){ Event.between(date,date + 1.day) }
+  scope :today, ->(){ Event.on_day(Date.today) }
+  scope :this_week, ->(){ where(:start_time=> 0.week.ago.beginning_of_week..0.week.ago.end_of_week) }
+  scope :remaining_this_week, ->(){ where(:start_time => 0.day.from_now..0.week.ago.end_of_week) }
+
   attr_accessible :description, :end_time, :name, :start_time, :facebook_id, :callink_id
   belongs_to :club
   has_many :categories, :through => :club, :source => :categories	
