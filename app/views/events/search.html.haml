@@ -9,8 +9,9 @@
     %tbody
       - @events.each do |event|
         %tr
-          %td #{event.name}
+          %td= link_to event.name , googlecal_events_path(:name => event.name,:start => event.start_time, :ends =>event.end_time)
+          
           %td #{event.start_time}
           %td #{event.end_time}
-          
+           
 
