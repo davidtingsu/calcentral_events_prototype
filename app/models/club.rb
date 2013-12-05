@@ -1,7 +1,8 @@
 class Club < ActiveRecord::Base
   has_many :events 
   attr_accessible :description, :name, :facebook_id, :facebook_url, :callink_id, :callink_permalink
-  has_many :categories
+  has_many :categorizations
+  has_many :categories, :through => :categorizations
   scope :with_facebook_url, ->(){ where("facebook_url IS NOT NULL") }
   scope :facebook, ->(){ where("facebook_id IS NOT NULL") }
   scope :callink, ->(){ where("callink_id IS NOT NULL") }
