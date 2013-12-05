@@ -22,10 +22,18 @@ class EventsController < ApplicationController
       start = params[:start]
       start = start.to_s
       ending = params[:ends]
-      #puts "HELLOOOOOOOOO #{ending}"
       ending = ending.to_s
-
-
+      des = params[:description]
+      des = des.to_s
+      if !des.nil? && !des.empty?
+         if des.include?(" ")
+            des = des.gsub(" ", "%20")
+          end
+      end
+      if des.nil? || des.empty?
+        des = "No%20Description"
+      end
+      
       numbers = start.index(" ")
       start = start[0..numbers-1].gsub("-","")
       numbere = ending.index(" ")
@@ -33,8 +41,10 @@ class EventsController < ApplicationController
 
       
       
-      link = "http://www.google.com/calendar/event?action=TEMPLATE&text="+ name + "&dates="  + start+ "/" + ending
-      # puts "HELLOOOOOOOOO #{link}"                                                                                                    
+      link = "http://www.google.com/calendar/event?action=TEMPLATE&text="+ name + "&dates="  + start+ "/" + ending + "&details=" +des
+
+     
+                                                                                                          
       redirect_to(link)
                  
   end
