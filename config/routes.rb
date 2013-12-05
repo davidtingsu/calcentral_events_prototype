@@ -1,5 +1,8 @@
 CalcentralEvents::Application.routes.draw do
   match '/' => 'events#index', :as => :home
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
   resources :clubs do
     get 'search', on: :collection
   end
