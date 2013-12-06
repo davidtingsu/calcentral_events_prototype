@@ -7,6 +7,7 @@ Given /^there are upcoming events$/ do
     }
 end
 
+
 When /^(?:|I )fill in "([^"]*)" with (.+) "([^"]*)"$/ do |field, model_type, value|
   ids = value.scan(/\d+/)
   case model_type
@@ -25,7 +26,7 @@ Then /^(?:|I )should see (.*) events$/ do |keyword|
         when 'all'
             page.should have_selector('.table-striped tbody tr')
             event_rows = all('.table-striped tbody tr')
-            event_rows.count.should be(Event.count)
+            event_rows.count.should be(Event.page.per(10).count)
 
         when 'no'
             page.should_not have_selector('.table-striped tbody tr')
