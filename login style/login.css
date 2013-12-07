@@ -1,0 +1,68 @@
+body {
+	background:#4ecdc4;
+	font-family: "Open Sans", sans-serif;
+	font-size:14px;
+}
+p {
+	margin-bottom:15px;
+	color:#999;
+
+}
+h1 {
+	color:#fff;
+    font-size:140px;
+    text-align:center;
+    margin:20px;
+	font-family: 'Roboto Slab', serif;
+}
+hr {
+	border: 1px dashed #eee;
+	margin: 20px 0;
+}
+
+.section {
+	width:1600px;
+	margin-left:auto;
+	margin-right:auto;
+
+}
+.login-form{
+	background:#fff;
+	border-radius: 4px;
+	padding:30px;
+	text-align:center;
+	margin:5em 40em; /*Makes bar */
+}
+
+/*Social Button Styling*/
+.social {
+	margin: 40px 0 10px;
+}
+.social a {
+	color:#fff;
+	text-decoration:none;
+	font-weight:bold;
+	border-radius: 4px 4px 4px 4px;
+	padding:20px 0;
+}
+.social a.facebook {
+	background:#3b5998;
+}
+.social a.facebook:hover {
+	background:#37528c;
+}
+
+.social .facebook > i {
+	border-radius: 4px 0 0 4px;
+	bottom: 3px;
+	font-size: 38px;
+	padding: 10px 14px;
+	position: relative;
+	vertical-align: middle;
+	clear: both;
+}
+.social .facebook > span {
+	font-size: 18px;
+	letter-spacing: 0.06em;
+	padding:24px 20px 24px 0;
+}
