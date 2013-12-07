@@ -13,6 +13,9 @@ class Club < ActiveRecord::Base
         self.facebook_url = URI::regexp(%w(http https)).match(facebook_url)[0]
       end
   end
+  def callink_url
+     "https://callink.berkeley.edu/organization/#{callink_permalink}" if is_callink?
+  end
 
   def is_facebook?
     facebook_id.present?

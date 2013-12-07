@@ -33,6 +33,9 @@ class Event < ActiveRecord::Base
   def callink_permalink
     "https://callink.berkeley.edu/events/details/#{callink_id}" if callink_id
   end
+  def facebook_permalink
+    "https://facebook.com/events/#{facebook_id}" if is_facebook?
+  end
   def self.get_facebook_group_events(graph_id, user_access_token)
     MiniFB.get(user_access_token, graph_id , :type => "events")
   end
