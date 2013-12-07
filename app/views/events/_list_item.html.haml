@@ -1,0 +1,30 @@
+.col-lg-6.col-md-6.portfolio-item
+  %a{:href => ""}
+    - if event.facebook_pic_cover.present?
+      %img.img-responsive{:src => event.facebook_pic_cover }/
+    - else
+      %img.img-responsive{:src => "http://placehold.it/615x218/1C2045/fff&text=#{event.name}"}/
+
+  %h3
+    %a{:href => "#"} 
+      = event.name
+    %small
+      = Time::DATE_FORMATS[:long_ordinal].call event.start_time
+  - if event.club
+    %h5
+      by
+      = link_to event.club.name, event.club.callink_url
+  %h4
+    = event.location
+  %p
+    = event.description
+  %p.text-left
+    %b People Attending:
+    \&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    %b Open with:&nbsp;
+    %a{ :href => "#" }
+      %i.fa.fa-calendar-o.fa-2x
+    - if event.facebook_permalink
+      %a{ :href => event.facebook_permalink }
+        %i.fa.fa-facebook-square.fa-2x
+

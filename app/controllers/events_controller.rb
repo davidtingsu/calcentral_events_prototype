@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   def index
+    @events = Event.reverse_chronological_order.page(params[:page]).per(10)
   end
 
   def search
