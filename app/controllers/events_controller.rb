@@ -16,36 +16,14 @@ class EventsController < ApplicationController
         @tem = true
   end
 
-  def googlecal
-      name = params[:name]
-      name = name.to_s
-      start = params[:start]
-      start = start.to_s
-      ending = params[:ends]
-      ending = ending.to_s
-      des = params[:description]
-      des = des.to_s
-      if !des.nil? && !des.empty?
-         if des.include?(" ")
-            des = des.gsub(" ", "%20")
-          end
-      end
-      if des.nil? || des.empty?
-        des = "No%20Description"
-      end
-      
-      numbers = start.index(" ")
-      start = start[0..numbers-1].gsub("-","")
-      numbere = ending.index(" ")
-      ending = ending[0..numbere-1].gsub("-","")
-
-      
-      
-      link = "http://www.google.com/calendar/event?action=TEMPLATE&text="+ name + "&dates="  + start+ "/" + ending + "&details=" +des
-
-     
-                                                                                                          
-      redirect_to(link)
+  def publishtogoogle
+      event = Event.find_by_id(params[:id])
+      if event.nil?
+         flash["No such event"]
+         redirect_to("/")
+      else
+      redirect_to(event.to_google_calendar_url)
+    end
                  
   end
 end

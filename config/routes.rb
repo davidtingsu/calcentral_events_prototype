@@ -6,6 +6,7 @@ CalcentralEvents::Application.routes.draw do
   resources :events, :only => [ :index ] do
     get 'search', on: :collection
     get 'googlecal' , on: :collection
+    get 'publishtogoogle', :on => :member
   end
 
   

@@ -36,7 +36,22 @@ class Event < ActiveRecord::Base
   def self.get_facebook_group_events(graph_id, user_access_token)
     MiniFB.get(user_access_token, graph_id , :type => "events")
   end
+  def to_google_calendar_url
+      
+    start = start_time.strftime("%Y%m%d")
+    ending = end_time.strftime("%Y%m%d")
 
+    params = {
+      action: "TEMPLATE",
+      text: name,
+      dates: "#{start}/#{ending}",
+      details: description
+    }
+    qs = URI.escape(params.collect{|k,v| "#{k}=#{v}"}.join('&'))
+    
+
+    URI.join("http://www.google.com/calendar/event", "?#{qs}").to_s
+  end
 
 
   @@access_token = "173006739573053|DPlwPfobC-caWfyYKw5rU-aKrjM"
