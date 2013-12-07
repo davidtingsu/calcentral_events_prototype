@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResultOfOrganization xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PageNumber>1</PageNumber>
+  <PageSize>100</PageSize>
+  <TotalItems>1</TotalItems>
+  <TotalPages>1</TotalPages>
+  <Items>
+    <Organization>
+      <OrganizationId>58415</OrganizationId>
+      <Name>dupe - GA Boalt Jewish Students Association</Name>
+      <Status>Inactive</Status>
+      <ShortName>GA BJSA</ShortName>
+      <Summary>GA BJSA</Summary>
+      <Description />
+      <AddressStreet1 />
+      <AddressStreet2 />
+      <AddressCity />
+      <AddressStateProvince />
+      <AddressZipPostal />
+      <PhoneNumber />
+      <Extension />
+      <FaxNumber />
+      <Email />
+      <ExternalWebsite />
+      <FacebookUrl />
+      <TwitterUrl />
+      <FlickrFeedUrl />
+      <YoutubeChannelUrl />
+      <GoogleCalendarUrl />
+      <ProfileImageUrl />
+      <ProfileUrl>callink.berkeley.edu/organization/bjsa</ProfileUrl>
+      <DirectoryVisibility>Visible</DirectoryVisibility>
+      <MembershipType>Closed</MembershipType>
+      <TypeId>1247</TypeId>
+      <TypeName>GA Government Project</TypeName>
+      <ParentId>46295</ParentId>
+      <ParentName>Graduate Student Groups</ParentName>
+      <PrimaryContactId xsi:nil="true" />
+      <PrimaryContactName />
+      <PrimaryContactCampusEmail />
+      <Categories />
+      <CustomFields />
+    </Organization>
+    </Items>
+</ResultOfOrganization>

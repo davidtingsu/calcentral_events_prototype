@@ -5,7 +5,7 @@ gem 'rails', '3.2.14'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-
+gem "kaminari" 
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -31,7 +31,7 @@ gem "httparty", "~> 0.11.0"
 gem "fakeweb", "~> 1.3.0"
 
 # allows open('http://...') to return body
-gem "rest-open-uri", "~> 1.0.0"
+gem "rest-open-uri", "~> 1.0.0", :require => false
 
 # XML parser
 gem "nokogiri", "~> 1.6.0"
@@ -73,6 +73,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'debugger'
+  gem 'dotenv-rails', '~> 0.9.0'
 end
 
 #Test JS

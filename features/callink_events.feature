@@ -6,6 +6,7 @@ Feature: Retrieve events from Callink
 
     Background:
     Given I am a computer
+    And clubs from todays rss feed exist
     And there are no events
 
 Scenario: Get events for a callink rss feed

@@ -1,5 +1,6 @@
 %h1 Events#search
 %p Find me in app/views/events/search.html.haml
+= paginate @events
 - if @events and @events.count > 0
   %table.table-striped.table#sort
     %thead

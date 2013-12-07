@@ -1,3 +1,4 @@
+require 'rest-open-uri'
 class Event < ActiveRecord::Base 
   #http://guides.rubyonrails.org/active_record_querying.html#passing-in-arguments
   scope :find_by_category, ->(*categories){ includes(:club => :categories).where("categories.name IN (:names)", :names => categories)}
@@ -5,9 +6,33 @@ class Event < ActiveRecord::Base
 
   scope :chronological_order, order("start_time ASC")
   scope :reverse_chronological_order, order("start_time DESC")
-  attr_accessible :description, :end_time, :name, :start_time, :facebook_id, :callink_id
+  scope :facebook, ->(){ where("facebook_id IS NOT NULL") }
+  scope :callink, ->(){ where("callink_id IS NOT NULL") }
+
+  scope :future, ->(){ where('start_time > :now', { :now => Time.now }) }
+  scope :past, ->(){ where('start_time < :now', { :now => Time.now }) }
+  scope :now, ->(){ where('start_time <= :now AND end_time >= :now', { :now => Time.now }) }
+  scope :between, ->(date_or_dt_start, date_or_dt_end){ where(:start_time => date_or_dt_start..date_or_dt_end) }
+  scope :on_day, ->(date){ Event.between(date,date + 1.day) }
+  scope :today, ->(){ Event.on_day(Date.today) }
+  scope :this_week, ->(){ where(:start_time=> 0.week.ago.beginning_of_week..0.week.ago.end_of_week) }
+  scope :remaining_this_week, ->(){ where(:start_time => 0.day.from_now..0.week.ago.end_of_week) }
+
+  attr_accessible :description, :end_time, :name, :start_time, :facebook_id, :callink_id, :facebook_pic_cover, :location
   belongs_to :club
   has_many :categories, :through => :club, :source => :categories	
+
+  def is_callink?
+    callink_id.present?
+  end
+
+  def is_facebook?
+    facebook_id.present?
+  end
+
+  def callink_permalink
+    "https://callink.berkeley.edu/events/details/#{callink_id}" if callink_id
+  end
   def self.get_facebook_group_events(graph_id, user_access_token)
     MiniFB.get(user_access_token, graph_id , :type => "events")
   end
@@ -18,7 +43,11 @@ class Event < ActiveRecord::Base
 
 
   def self.getFacebookEvents(facebook_page_id)
-     MiniFB.fql(@@access_token,"SELECT eid, name, location, description, start_time, end_time, timezone FROM event where creator = #{CGI.escape(facebook_page_id)}") if facebook_page_id.present?
+     # https://developers.facebook.com/docs/reference/fql/event
+     MiniFB.fql(@@access_token, self.get_fql(facebook_page_id)) if facebook_page_id.present?
+  end
+  def self.get_fql(facebook_page_id)
+    "SELECT eid, pic_cover, venue, name, location, description, start_time, end_time, timezone FROM event where creator = #{CGI.escape(facebook_page_id)}"
   end
 
 
@@ -40,8 +69,11 @@ class Event < ActiveRecord::Base
         if event.present?
             event.update_attributes!(hash)
         else
-            event = Event.create!(hash)
+            event = Event.new(hash)
         end
+        club ||= Club.find_by_callink_permalink!(event_hash[:groupname])
+        club.events << event and club.save
+        event.save!
         if event_hash[:start_time].present? and event_hash[:start_date].present?
             d = Time.parse(event_hash[:start_date])
             t = Time.parse(event_hash[:start_time])
