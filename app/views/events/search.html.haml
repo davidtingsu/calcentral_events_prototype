@@ -10,8 +10,8 @@
     %tbody
       - @events.each do |event|
         %tr
-          %td #{event.name}
+          %td= link_to event.name , publishtogoogle_event_path(event)    
           %td #{event.start_time}
           %td #{event.end_time}
-          
+           
 

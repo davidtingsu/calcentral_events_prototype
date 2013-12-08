@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+ 
   def index
     @events = Event.reverse_chronological_order.page(params[:page]).per(10)
   end
@@ -11,5 +12,17 @@ class EventsController < ApplicationController
         if params[:club].present?
             @events = Event.find_by_club(*params[:club].split(',')).page(params[:page]).per(10)
         end
+        @tem = true
+  end
+
+  def publishtogoogle
+      event = Event.find_by_id(params[:id])
+      if event.nil?
+         flash["No such event"]
+         redirect_to("/")
+      else
+      redirect_to(event.to_google_calendar_url)
+    end
+                 
   end
 end

@@ -5,7 +5,12 @@ CalcentralEvents::Application.routes.draw do
   end
   resources :events, :only => [ :index ] do
     get 'search', on: :collection
+    get 'googlecal' , on: :collection
+    get 'publishtogoogle', :on => :member
   end
+
+  
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
