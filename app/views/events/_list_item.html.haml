@@ -6,8 +6,8 @@
       %img.img-responsive{:src => "http://placehold.it/615x218/1C2045/fff&text=#{event.name}"}/
 
   %h3
-    %a{:href => "#"} 
-      = event.name
+    
+    = event.name
     %small
       = Time::DATE_FORMATS[:long_ordinal].call event.start_time
   - if event.club
@@ -22,7 +22,7 @@
     %b People Attending:
     \&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     %b Open with:&nbsp;
-    %a{ :href => "#" }
+    %a{ :href => publishtogoogle_event_path(event) }
       %i.fa.fa-calendar-o.fa-2x
     - if event.facebook_permalink
       %a{ :href => event.facebook_permalink }
