@@ -20,6 +20,10 @@
     = event.description
   %p.text-left
     %b People Attending:
+    - event.friend_list.each do  |friend|
+      %img{ :src => friend["pic_square"] }
+
+
     \&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     %b Open with:&nbsp;
     %a{ :href => "#" }

@@ -1,6 +1,8 @@
 require 'rest-open-uri'
 class Event < ActiveRecord::Base 
   #http://guides.rubyonrails.org/active_record_querying.html#passing-in-arguments
+  attr_accessor :friend_list
+  attr_accessible :friend_list
   scope :find_by_category, ->(*categories){ includes(:club => :categories).where("categories.name IN (:names)", :names => categories)}
   scope :find_by_club, ->(*clubs){ includes(:club).where("clubs.name IN (:names) ", :names => clubs)}
 
@@ -38,6 +40,10 @@ class Event < ActiveRecord::Base
   end
   def self.get_facebook_group_events(graph_id, user_access_token)
     MiniFB.get(user_access_token, graph_id , :type => "events")
+  end
+  def set_friend_list(access_token = "hardcoded")
+    # get friends for event
+    friend_list = MiniFB.fql(access_token, "SELECT uid, name, profile_url, pic, pic_square from user where uid in (SELECT uid from event_member where eid = 203384179845672 and uid IN (SELECT uid2 from friend where uid1 = me()))")
   end
 
 
