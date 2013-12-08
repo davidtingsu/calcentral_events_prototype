@@ -2,6 +2,12 @@ class EventsController < ApplicationController
  
   def index
     @events = Event.reverse_chronological_order.page(params[:page]).per(10)
+    @events.each{
+        if params[:access_present].present?
+            event.set_friend_list(params[:access_present])
+        end
+    }
+
   end
 
   def search
@@ -12,7 +18,11 @@ class EventsController < ApplicationController
         if params[:club].present?
             @events = Event.find_by_club(*params[:club].split(',')).page(params[:page]).per(10)
         end
-        @tem = true
+        @events.each{
+            if params[:access_present].present?
+                event.set_friend_list(params[:access_present])
+            end
+        }
   end
 
   def publishtogoogle
