@@ -105,10 +105,10 @@ class Club < ActiveRecord::Base
                    start_time: event_hash.start_time,
                    end_time: event_hash.end_time,
                    description: event_hash.description,
-                   facebook_id: event_hash.eid,
+                   facebook_id: event_hash.eid.to_s,
                    facebook_pic_cover: (event_hash.pic_cover.source if event_hash.pic_cover.present?),
                    location: event_hash.location }
-    event ||= Event.find_by_facebook_id(event_hash.eid)
+    event ||= Event.find_by_facebook_id(event_hash.eid.to_s)
     event ||= Event.new(attributes)
     event.update_attributes! attributes unless event.new_record?
     events << event and save! if (only_future and event.start_time.future?) or ! only_future
