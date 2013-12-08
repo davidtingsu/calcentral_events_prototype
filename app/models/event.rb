@@ -42,13 +42,20 @@ class Event < ActiveRecord::Base
   def to_google_calendar_url
       
     start = start_time.strftime("%Y%m%d")
-    ending = end_time.strftime("%Y%m%d")
+    
+    if end_time.nil? || end_time.blank? 
+      ending = start
+    else
+      ending = end_time.strftime("%Y%m%d")
+    end
+
 
     params = {
       action: "TEMPLATE",
       text: name,
       dates: "#{start}/#{ending}",
-      details: description
+      details: description,
+      location: location
     }
     qs = URI.escape(params.collect{|k,v| "#{k}=#{v}"}.join('&'))
     
