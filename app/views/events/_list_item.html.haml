@@ -35,6 +35,8 @@
         %small.label.label-primary 5 Friends
 
       -# TODO: replace placeholder images with friends images
-      - 7.times do
-        %img.img-circle{ :src => "http://placehold.it/50x50/" }
+      - if event.friend_list.present?
+        - event.friend_list.each do |friend_hash|
+          %a{ :href => friend_hash.profile_url, :target => "_blank" }
+            %img.img-circle{ :src => friend_hash.pic_square, :alt => friend_hash.name, :title => friend_hash.name  }
 

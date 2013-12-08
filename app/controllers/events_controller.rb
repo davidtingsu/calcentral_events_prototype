@@ -2,9 +2,10 @@ class EventsController < ApplicationController
  
   def index
     @events = Event.reverse_chronological_order.page(params[:page]).per(10)
-    @events.each{
-        if params[:access_present].present?
-            event.set_friend_list(params[:access_present])
+    @events.each{|event|
+        if event.is_facebook?
+          #TODO get user access token
+          event.set_friend_list
         end
     }
 
@@ -19,8 +20,9 @@ class EventsController < ApplicationController
             @events = Event.find_by_club(*params[:club].split(',')).page(params[:page]).per(10)
         end
         @events.each{
-            if params[:access_present].present?
-                event.set_friend_list(params[:access_present])
+            if event.is_facebook?
+              #TODO get user access token
+              event.set_friend_list
             end
         }
   end
