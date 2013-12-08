@@ -8,6 +8,7 @@
   %h3
     
     = event.name
+    %br
     %small
       = Time::DATE_FORMATS[:long_ordinal].call event.start_time
   - if event.club
@@ -19,12 +20,21 @@
   %p
     = event.description
   %p.text-left
-    %b People Attending:
-    \&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-    %b Open with:&nbsp;
     %a{ :href => publishtogoogle_event_path(event) }
       %i.fa.fa-calendar-o.fa-2x
     - if event.facebook_permalink
       %a{ :href => event.facebook_permalink }
         %i.fa.fa-facebook-square.fa-2x
+
+  .pull-left.col-lg-12.col-md-12{ :style => "padding-left:0;"}
+    %p.text-left
+      %h4
+        People Attending
+        %br.visible-xs.hidden-sm.hidden-md.hidden-lg
+        %small.label.label-primary 100
+        %small.label.label-primary 5 Friends
+
+      -# TODO: replace placeholder images with friends images
+      - 7.times do
+        %img.img-circle{ :src => "http://placehold.it/50x50/" }
 
