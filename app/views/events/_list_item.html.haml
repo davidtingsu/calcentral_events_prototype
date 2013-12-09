@@ -4,6 +4,11 @@
       %img.img-responsive{:src => event.facebook_pic_cover }/
     - else
       %img.img-responsive{:src => "http://placehold.it/615x218/1C2045/fff&text=#{event.name}"}/
+  - if event.categories.any?
+    - event.categories.each do |category|
+      %span.label.label-default #{category.name}
+  - else
+    %span.label.label-default Uncategorized
 
   %h3
     
