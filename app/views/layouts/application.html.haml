@@ -23,8 +23,8 @@
                   %span Events
                   %b.caret
                 %select.form-control{ name: "search_type", style: "position: absolute; min-width: 84px; top: 0; left: 0; z-index: -1;" }
-                  %option{ value: "event"} Event
-                  %option{ value: "club"} Club
+                  %option{ value: "event", selected: ('selected' if session[:search_type] =='event')} Event
+                  %option{ value: "club", selected: ('selected' if session[:search_type] == 'club')} Club
 
               %input#srch-term.form-control{:name => "q", :placeholder => "Search", :type => "text", :value => session[:q]}/
               .input-group-btn

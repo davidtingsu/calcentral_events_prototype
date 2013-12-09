@@ -1,4 +1,6 @@
 class ClubsController < ApplicationController
+  around_filter :save_search_values
+
   def index
   end
 
@@ -25,9 +27,25 @@ class ClubsController < ApplicationController
   end
 
   def search
-    if params[:club].present?
-        @club = Club.find_by_name(params[:club])
+    fields = ['name']
+    page = params[:page].to_i
+
+    if params[:category].present?
+        fields << 'categories_name'
     end
+    @clubs = Club.search("#{fields.join("_or_")}_cont".to_sym => params[:q]).result(distinct: true).page(page).per(10)
+    render "index"
+  end
+
+  private
+
+  def save_search_values
+    session[:q] = params[:q]
+    session[:page] = params[:page]
+    session[:club] = params[:club]
+    session[:category] = params[:category]
+    session[:search_type] = params[:search_type]
+    yield
   end
 
 end

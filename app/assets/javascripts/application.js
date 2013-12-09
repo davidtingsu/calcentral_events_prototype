@@ -29,13 +29,24 @@
         }
         $select.focus().get(0).dispatchEvent(doClick());
     })
-    $select.on('change', function(e){
-        $select_placeholder.find('span').text($(this).find(":selected").text());
-        text = $(this).find(":selected").val();
+    function setAction(text){
         if(text === 'event'){
             $navbar_form.attr({ action: '/events/search' });
         } else if( text === 'club'){
             $navbar_form.attr({ action: '/clubs/search' });
         }
+
+    }
+    function setPlaceholderText(text){
+        $select_placeholder.find('span').text(text);
+    }
+
+    setAction($select.find(":selected").val())
+    setPlaceholderText($select.find(":selected").text());
+
+    $select.on('change', function(e){
+        setPlaceholderText($(this).find(":selected").text());
+        text = $(this).find(":selected").val();
+        setAction(text);
     });
 })()

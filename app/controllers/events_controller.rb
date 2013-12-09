@@ -35,6 +35,7 @@ class EventsController < ApplicationController
     session[:page] = params[:page]
     session[:club] = params[:club]
     session[:category] = params[:category]
+    session[:search_type] = params[:search_type]
     yield
   end
 
