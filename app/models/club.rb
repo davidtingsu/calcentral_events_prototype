@@ -1,7 +1,8 @@
 class Club < ActiveRecord::Base
   has_many :events 
   attr_accessible :description, :name, :facebook_id, :facebook_url, :callink_id, :callink_permalink
-  has_many :categories
+  has_many :categorizations
+  has_many :categories, :through => :categorizations
   scope :with_facebook_url, ->(){ where("facebook_url IS NOT NULL") }
   scope :facebook, ->(){ where("facebook_id IS NOT NULL") }
   scope :callink, ->(){ where("callink_id IS NOT NULL") }
@@ -28,16 +29,19 @@ class Club < ActiveRecord::Base
     callink_id.present?
   end
 
-  def update_events!
+  def update_events!(only_future_events = true)
     # gets and creates association with for facebook page events
     # TODO: get events for facebook groups when user access token present
     # There is currently no direct way a callink clubs
     if is_facebook?
-        events = Event.getFacebookEvents(facebook_id)
-        events.each{ |event_hash|
-            update_or_create_facebook_event(event_hash)
-        }
+      update_facebook_page_events only_future_events
     end
+  end
+  def update_facebook_page_events(only_future_events = true)
+    events = Event.getFacebookEvents(facebook_id)
+    events.each{ |event_hash|
+        update_or_create_facebook_event(event_hash, only_future_events)
+    }
   end
 
   def get_facebook_group_events(user_access_token)
@@ -94,8 +98,16 @@ class Club < ActiveRecord::Base
     club
   end
   def update_or_create_facebook_event(event_hash, only_future = true)
+    attributes = { name: event_hash.name,
+                   start_time: event_hash.start_time,
+                   end_time: event_hash.end_time,
+                   description: event_hash.description,
+                   facebook_id: event_hash.eid,
+                   facebook_pic_cover: (event_hash.pic_cover.source if event_hash.pic_cover.present?),
+                   location: event_hash.location }
     event ||= Event.find_by_facebook_id(event_hash.eid)
-    event ||= Event.new(:name => event_hash.name, :start_time => event_hash.start_time, :end_time => event_hash.end_time, :description => event_hash.description, :facebook_id => event_hash.eid)
+    event ||= Event.new(attributes)
+    event.update_attributes! attributes unless event.new_record?
     events << event and save! if (only_future and event.start_time.future?) or ! only_future
   end
 

@@ -18,7 +18,7 @@ class Event < ActiveRecord::Base
   scope :this_week, ->(){ where(:start_time=> 0.week.ago.beginning_of_week..0.week.ago.end_of_week) }
   scope :remaining_this_week, ->(){ where(:start_time => 0.day.from_now..0.week.ago.end_of_week) }
 
-  attr_accessible :description, :end_time, :name, :start_time, :facebook_id, :callink_id
+  attr_accessible :description, :end_time, :name, :start_time, :facebook_id, :callink_id, :facebook_pic_cover, :location
   belongs_to :club
   has_many :categories, :through => :club, :source => :categories	
 
@@ -43,7 +43,11 @@ class Event < ActiveRecord::Base
 
 
   def self.getFacebookEvents(facebook_page_id)
-     MiniFB.fql(@@access_token,"SELECT eid, name, location, description, start_time, end_time, timezone FROM event where creator = #{CGI.escape(facebook_page_id)}") if facebook_page_id.present?
+     # https://developers.facebook.com/docs/reference/fql/event
+     MiniFB.fql(@@access_token, self.get_fql(facebook_page_id)) if facebook_page_id.present?
+  end
+  def self.get_fql(facebook_page_id)
+    "SELECT eid, pic_cover, venue, name, location, description, start_time, end_time, timezone FROM event where creator = #{CGI.escape(facebook_page_id)}"
   end
 
 
