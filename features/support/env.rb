@@ -7,7 +7,22 @@ SimpleCov.start 'rails'
 # files.
 
 require 'cucumber/rails'
+OmniAuth.config.test_mode = true
+OmniAuth.config.add_mock(:facebook, {
+  :uid => '12345',
+  :nickname => 'fooman',
+  :user_info => {
+    :first_name => 'Foo',
+    :last_name => 'Man'
+  },
+  :credentials => {
+    :token => 'haha',
+    :expires_at => Time.now
+  }                                                   
+})
 require 'rspec-rails'
+
+
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any

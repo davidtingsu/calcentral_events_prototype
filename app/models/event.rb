@@ -50,11 +50,6 @@ class Event < ActiveRecord::Base
     else
       ending = end_time.strftime("%Y%m%d")
     end
-  def set_friend_list(access_token = "hardcoded", eid )
-    # get friends for event
-    friend_list = MiniFB.fql(access_token, "SELECT uid, name, profile_url, pic, pic_square from user where uid in (SELECT uid from event_member where eid = #{eid} and uid IN (SELECT uid2 from friend where uid1 = me())) LIMiT 7")
-  end
-
 
     params = {
       action: "TEMPLATE",
@@ -68,6 +63,17 @@ class Event < ActiveRecord::Base
 
     URI.join("http://www.google.com/calendar/event", "?#{qs}").to_s
   end
+  def set_friend_list(access_token = "user_access_token")
+        # access_token is retrieved from the authenticated user
+        # to retrieve a test token go to https://developers.facebook.com/tools/explorer
+        begin
+            friend_list = MiniFB.fql(access_token, "SELECT uid, name, profile_url, pic, pic_square from user where uid in (SELECT uid from event_member where eid = #{facebook_id} and uid IN (SELECT uid2 from friend where uid1 = me())) LIMIT 7")
+            update_attribute(:friend_list, friend_list)
+        rescue => e
+          debugger
+          puts e.message
+        end
+   end
 
 
   @@access_token = "173006739573053|DPlwPfobC-caWfyYKw5rU-aKrjM"

@@ -25,10 +25,13 @@ group :production do
 end
 # support for httparty
 gem "httparty", "~> 0.11.0"
+ 
 
-gem "ransack"
 # support for fakeWeb
 gem "fakeweb", "~> 1.3.0"
+
+# support for facebook authentication
+gem "omniauth-facebook"
 
 # allows open('http://...') to return body
 gem "rest-open-uri", "~> 1.0.0", :require => false
@@ -61,6 +64,7 @@ gem 'turbolinks'
 gem 'factory_girl', '~> 2.2'
 gem 'factory_girl_rails', :require => false
 gem 'faker'
+gem 'ransack'
 group :development, :test do
   gem 'simplecov'
   gem 'webrat'
@@ -74,6 +78,7 @@ group :development, :test do
   gem 'capybara'
   gem 'debugger'
   gem 'dotenv-rails', '~> 0.9.0'
+  
 end
 
 #Test JS

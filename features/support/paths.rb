@@ -21,6 +21,8 @@ module NavigationHelpers
       '/clubs'
     when /^the club home\s?page$/
     '/clubs/2'
+    when /^Cal Central Events home\s?page$/
+      '/'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

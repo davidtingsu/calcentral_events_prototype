@@ -3,9 +3,10 @@ class EventsController < ApplicationController
   around_filter :save_search_values
   def index
     @events = Event.reverse_chronological_order.page(params[:page]).per(10)
-    @events.each{
-        if params[:access_present].present?
-            event.set_friend_list(params[:access_present])
+    @events.each{|event|
+        if event.is_facebook? and current_user.present?
+          #TODO get current_user access token
+          event.set_friend_list current_user.oauth_token
         end
     }
 
@@ -23,9 +24,10 @@ class EventsController < ApplicationController
         end
         # Event.search( :name_or_club_name_or_categories_name_cont => "").result
         @events = Event.search("#{fields.join("_or_")}_cont".to_sym => params[:q]).result(distinct: true).page(page).per(10)
-        @events.each{
-            if params[:access_present].present?
-                event.set_friend_list(params[:access_present])
+        @events.each{ |event|
+            if event.is_facebook? and current_user.present?
+              #TODO get current_user access token
+              event.set_friend_list current_user.oauth_token
             end
         }
         render "index"

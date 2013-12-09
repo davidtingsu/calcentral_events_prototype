@@ -11,15 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131118060148) do
+ActiveRecord::Schema.define(:version => 20131204034117) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.integer  "club_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "callink_id"
   end
 
+  add_index "categories", ["callink_id"], :name => "index_categories_on_callink_id"
   add_index "categories", ["club_id"], :name => "index_categories_on_club_id"
 
   create_table "clubs", :force => true do |t|
@@ -27,12 +29,18 @@ ActiveRecord::Schema.define(:version => 20131118060148) do
     t.text     "name"
     t.string   "facebook_id"
     t.integer  "category_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "facebook_url"
+    t.string   "callink_id"
+    t.string   "callink_permalink"
+    t.string   "permalink"
   end
 
+  add_index "clubs", ["callink_id"], :name => "index_clubs_on_callink_id"
+  add_index "clubs", ["callink_permalink"], :name => "index_clubs_on_callink_permalink"
   add_index "clubs", ["category_id"], :name => "index_clubs_on_category_id"
+  add_index "clubs", ["permalink"], :name => "index_clubs_on_permalink"
 
   create_table "events", :force => true do |t|
     t.text     "description"
@@ -47,5 +55,15 @@ ActiveRecord::Schema.define(:version => 20131118060148) do
   end
 
   add_index "events", ["club_id"], :name => "index_events_on_club_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
 end
