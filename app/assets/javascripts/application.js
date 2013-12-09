@@ -15,3 +15,27 @@
 //= bootstrap.min
 //= require tablesorter.min
 //= require_tree . 
+(function(){
+    //http://stackoverflow.com/a/18141003/1123985
+    $navbar_form = $('[role=search]');
+    $select_placeholder = $('.js-searchtype');
+    $select = $select_placeholder.siblings('select');
+    $select_placeholder.click(function(e){
+        var doClick = function() {
+           'use strict';
+           var event = document.createEvent('MouseEvents');
+           event.initMouseEvent('mousedown', true, true, window);
+           return event;
+        }
+        $select.focus().get(0).dispatchEvent(doClick());
+    })
+    $select.on('change', function(e){
+        $select_placeholder.find('span').text($(this).find(":selected").text());
+        text = $(this).find(":selected").val();
+        if(text === 'event'){
+            $navbar_form.attr({ action: '/events/search' });
+        } else if( text === 'club'){
+            $navbar_form.attr({ action: '/clubs/search' });
+        }
+    });
+})()

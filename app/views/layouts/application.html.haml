@@ -19,12 +19,12 @@
           %form.navbar-form{:role => "search", action: search_events_path, method: "GET"}
             .input-group
               .input-group-btn
-                %a.btn.btn-default{"data-toggle" => "dropdown", :href => "#"}
-                  Events
+                %a.btn.btn-default.js-searchtype{:href => "#"}
+                  %span Events
                   %b.caret
-                %ul.dropdown-menu
-                  %li
-                    %a{:href => "#"} Clubs
+                %select.form-control{ name: "search_type", style: "position: absolute; min-width: 84px; top: 0; left: 0; z-index: -1;" }
+                  %option{ value: "event"} Event
+                  %option{ value: "club"} Club
 
               %input#srch-term.form-control{:name => "q", :placeholder => "Search", :type => "text", :value => session[:q]}/
               .input-group-btn
