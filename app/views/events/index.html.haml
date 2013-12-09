@@ -8,6 +8,10 @@
   .row
     - @events.each do |event|
       = render :partial => "list_item", :locals => { :event => event }
+    - if @events.empty?
+      .alert.alert-info
+        %b Sorry!
+        No Events found
 
   %hr/
   .row.text-center

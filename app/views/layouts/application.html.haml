@@ -26,9 +26,18 @@
                   %li
                     %a{:href => "#"} Clubs
 
-              %input#srch-term.form-control{:name => "q", :placeholder => "Search", :type => "text"}/
+              %input#srch-term.form-control{:name => "q", :placeholder => "Search", :type => "text", :value => session[:q]}/
               .input-group-btn
                 %button.btn.btn-default{:type => "submit", :style => "margin-left:-4px;"}
                   %i.glyphicon.glyphicon-search
+            %label.checkbox-inline
+              = check_box_tag 'club', 'yes', session[:club].present?
+              %small{ style: "color: white;"} Search by Club
+            %label.checkbox-inline
+              = check_box_tag 'category', 'yes', session[:category].present?
+              %small{ style: "color: white;"} Search by Category
+
     .container
       = yield :main
+
+    =javascript_include_tag "application"

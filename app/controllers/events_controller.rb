@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
  
+  around_filter :save_search_values
   def index
     @events = Event.reverse_chronological_order.page(params[:page]).per(10)
     @events.each{
@@ -28,6 +29,13 @@ class EventsController < ApplicationController
             end
         }
         render "index"
+  end
+  def save_search_values
+    session[:q] = params[:q]
+    session[:page] = params[:page]
+    session[:club] = params[:club]
+    session[:category] = params[:category]
+    yield
   end
 
   def publishtogoogle
