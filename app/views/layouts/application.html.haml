@@ -16,17 +16,17 @@
         .navbar-header
           %a.navbar-brand{:href => "#"} Cal Central Events
         .col-sm-5.col-md-5.pull-right
-          %form.navbar-form{:role => "search"}
+          %form.navbar-form{:role => "search", action: search_events_path, method: "GET"}
             .input-group
               .input-group-btn
                 %a.btn.btn-default{"data-toggle" => "dropdown", :href => "#"}
-                  Clubs
+                  Events
                   %b.caret
                 %ul.dropdown-menu
                   %li
-                    %a{:href => "#"} Event
+                    %a{:href => "#"} Clubs
 
-              %input#srch-term.form-control{:name => "srch-term", :placeholder => "Search", :type => "text"}/
+              %input#srch-term.form-control{:name => "q", :placeholder => "Search", :type => "text"}/
               .input-group-btn
                 %button.btn.btn-default{:type => "submit", :style => "margin-left:-4px;"}
                   %i.glyphicon.glyphicon-search

@@ -26,7 +26,7 @@ end
 # support for httparty
 gem "httparty", "~> 0.11.0"
 
-
+gem "ransack"
 # support for fakeWeb
 gem "fakeweb", "~> 1.3.0"
 
