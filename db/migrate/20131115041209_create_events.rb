@@ -2,8 +2,8 @@ class CreateEvents < ActiveRecord::Migration
   def change
     create_table :events do |t|
       t.text :description
-      t.string :end_time
-      t.string :start_time
+      t.datetime :end_time
+      t.datetime :start_time
       t.string :facebook_id
       t.references :club
 
