@@ -6,7 +6,9 @@ FactoryGirl.define do
     description{ FactoryGirl.generate(:random_string) }
 
     factory :club_with_categories, :parent => :club do |club|
-      categories { FactoryGirl.build_list :category, 3 }
+      after_create do |club|
+      	3.times{ club.categorizations << FactoryGirl.create(:categorization, club: club) }
+      end
     end 
   end
 end

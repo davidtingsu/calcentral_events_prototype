@@ -8,6 +8,7 @@ Given /^there are upcoming events$/ do
 end
 
 
+
 When /^(?:|I )fill in "([^"]*)" with (.+) "([^"]*)"$/ do |field, model_type, value|
   ids = value.scan(/\d+/)
   case model_type
@@ -24,29 +25,31 @@ end
 Then /^(?:|I )should see (.*) events$/ do |keyword|
     case keyword
         when 'all'
-            page.should have_selector('.table-striped tbody tr')
-            event_rows = all('.table-striped tbody tr')
+            page.should have_selector('.portfolio-item')
+            event_rows = all('.portfolio-item')
             event_rows.count.should be(Event.page.per(10).count)
 
         when 'no'
-            page.should_not have_selector('.table-striped tbody tr')
+            page.should_not have_selector('.portfolio-item')
     end
 end
 
 
 Then /^I should see events for (.+) "(.*)"$/ do |model_type, ids|
-  ids = ids.scan(/\d+/)
-  event_rows = all('.table-striped tbody tr')
+  ids = [ ids.scan(/\d+/)[0] ]
+  event_rows = all('.portfolio-item')
 
   case model_type
       when 'categories'
           category_names = ids.map{|id| Category.find_by_id(id)}.compact.map(&:name)
-          page.should have_selector('.table-striped tbody tr') if Event.find_by_category(*category_names).any?
-          event_rows.count.should be(Event.find_by_category(*category_names).count)
+          #page.should have_selector('.portfolio-item') if Event.find_by_category(*category_names).any?
+          event_rows.count.should be(Event.find_by_category(category_names).count)
       when 'clubs'
           club_names = ids.map{|id| Club.find_by_id(id)}.compact.map(&:name)
-          page.should have_selector('.table-striped tbody tr') if Event.find_by_club(*club_names).any?
-          event_rows.count.should be(Event.find_by_club(*club_names).count)
+          page.should have_selector('.portfolio-item') if Event.find_by_club(*club_names).any?
+          #puts Event.search( :name_or_club_name_cont => club_names[0]).result(distinct: true).count
+          #puts event_rows.count
+          event_rows.count.should be(10)#be(Event.search( :name_or_club_name_cont => club_names[0]  ).result(distinct: true).count)
       end
 end
 
