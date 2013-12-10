@@ -13,5 +13,5 @@ Feature: getting today's events from UCBerkeley events website
     Scenario: website with wrong url
         Given I want UCBerkeley events for the website ""
 	When I get UCBerkeley events from the website "" for ""
-	Then there should be "" for the event page "" for the event page ""
+	Then there should be "" for the event page "" 
 	
