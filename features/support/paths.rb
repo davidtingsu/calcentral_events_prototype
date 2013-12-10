@@ -23,7 +23,10 @@ module NavigationHelpers
     '/clubs/2'
     when /^Cal Central Events home\s?page$/
       '/'
-
+    when /^the club 1 home\s?page$/
+    "/clubs/search?search_type=club&q=Club_1"
+    when /^the club 3 home\s?page$/
+    "/clubs/search?search_type=club&q=Club_3"
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
