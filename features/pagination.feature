@@ -9,7 +9,7 @@ Background: Events have been created
     When I go to the events homepage
 
 Scenario: no categories or clubs are chosen all events should be visible
-    When I press "Search"
+    When I press the button search
     Then I should see all events
     And I should see "Next"
     And I should see "Last"
@@ -23,8 +23,8 @@ Scenario: no categories or clubs are chosen all events should be visible
 Scenario: Events for a club with less than 10 events, no pagination
     When I go to the events homepage
     Then I should see "Search"
-    When I fill in "club" with "Club_1"
-    And I press "Search"
+    When I fill in "Search" with "Club_1"
+    When I press the button search
     And I should not see "Next"
     And I should not see "Last"
 

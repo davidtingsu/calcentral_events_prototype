@@ -53,6 +53,14 @@ When /^(?:|I )press "([^"]*)"$/ do |button|
   click_button(button)
 end
 
+When(/^I press the button search$/) do
+  page.find('button.btn.btn-default').click
+end
+
+When(/^I press the button search for club$/) do
+  page.find('select.form-control').click
+end
+
 When /^(?:|I )follow "([^"]*)"$/ do |link|
   click_link(link)
 end
