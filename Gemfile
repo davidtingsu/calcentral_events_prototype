@@ -65,6 +65,7 @@ gem 'factory_girl', '~> 2.2'
 gem 'factory_girl_rails', :require => false
 gem 'faker'
 gem 'ransack'
+gem 'rails_autolink'
 group :development, :test do
   gem 'simplecov'
   gem 'webrat'

@@ -23,7 +23,7 @@
   %h4
     = event.location
   %p
-    = event.description
+    = auto_link(event.description)
   %p.text-left
     %a{ :href => publishtogoogle_event_path(event) }
       %i.fa.fa-calendar-o.fa-2x
