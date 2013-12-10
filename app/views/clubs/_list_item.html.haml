@@ -9,11 +9,13 @@
     %span.label.label-default Uncategorized
 
   %h3
-    = club.name
-    %br
-  - if club
-    %h5
-      by
-      = link_to club.name, club.callink_url
+    = link_to club.name, club.callink_url
+  - if club.facebook_url
+    %a{ :href => club.facebook_url }
+      %i.fa.fa-facebook-square.fa-2x
+  - else
+    = render :partial => "edit", :locals => { :club => club }
+
+
   %p
     = auto_link(club.description)

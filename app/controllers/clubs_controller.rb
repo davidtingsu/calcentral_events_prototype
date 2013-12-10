@@ -17,12 +17,11 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     if params[:club]["facebook_url"].start_with?("https://www.facebook.com")
       @club.update_attributes!(params[:club])
-      puts "#{params[:club][:facebook_url]}"
-      flash[:notice] = "#{@club.name}'s events were successfully added!!!"
-      redirect_to club_path(@club)
+      flash[:success] = "#{@club.name} successfully updated!"
+      redirect_to_back search_clubs_path
     else
-      flash[:notice] = "#{@club.name}'s events were not added!"
-      redirect_to club_path(@club)     
+      flash[:notice] = "#{@club.name} not updated!"
+      redirect_to_back search_clubs_path
     end 
   end
 

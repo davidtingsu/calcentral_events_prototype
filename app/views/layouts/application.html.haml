@@ -57,6 +57,17 @@
               %small{ style: "color: white;"} Search by Category
 
     .container
+      .row
+        .col-lg-12{ :style => "margin-top: 40px;"}
+          - if flash[:success].present?
+            .alert.alert-success
+              =flash[:success]
+          - if flash[:notice].present?
+            .alert.alert-info
+              =flash[:notice]
+          - if flash[:error].present?
+            .alert.alert-danger
+              =flash[:error]
       = yield :main
 
     =javascript_include_tag "application"

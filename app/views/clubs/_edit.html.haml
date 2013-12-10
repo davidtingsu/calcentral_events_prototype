@@ -1,0 +1,7 @@
+= form_tag club_path(club), :class => "form form-inline", :method => :put do
+  = label :club, :facebook_url, 'Facebook URL', :class => "control-label"
+  .form-group
+    = text_field :club, 'facebook_url' , :class => "form-control col-sm-2", :placeholder => "https://www.facebook.com/awesome"
+
+
+  = submit_tag 'Save', :class => "btn btn-default"
