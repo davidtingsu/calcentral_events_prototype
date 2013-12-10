@@ -8,7 +8,7 @@ Feature: having a facebook login on Calcentral
     	      Given I am on Cal Central Events home page 
 	      Then I should see "Sign in with Facebook"
 	      Given I am signed in with provider "facebook"
-	      Then I should see "Signed in as Bob Example!"
+	      Then I should see "Bob"
 	       
 	      
 	      
