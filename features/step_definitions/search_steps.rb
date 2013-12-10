@@ -56,3 +56,16 @@ end
 Then(/^the facebook url for Club_(\d+) should be "(.*?)"$/) do |arg1, arg2|
   assert page.body.include?(arg2)
 end
+
+When(/^I fill in the facebook url with "(.*?)"$/) do |arg1|
+    page.find('input#club_facebook_url.form-control.col-sm-2').set 'arg1'
+    #fill_in("https://www.facebook.com/", :with => arg1)
+end
+
+Then(/^I should see the alert "(.*?)"$/) do |arg1|
+    # => puts page.find('div.alert.alert-success')
+end
+
+
+
+

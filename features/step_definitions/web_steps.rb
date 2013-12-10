@@ -57,6 +57,10 @@ When(/^I press the button search$/) do
   page.find('button.btn.btn-default').click
 end
 
+When(/^I press the save button$/) do
+  #page.find('input.btn.btn-default').click
+end
+
 When(/^I press the button search for club$/) do
   page.find('select.form-control').click
 end

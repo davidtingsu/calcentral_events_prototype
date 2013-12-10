@@ -5,29 +5,24 @@ Feature: Add Facebook Url to diplay events in CalCentral
 
 Background:
     Given there are upcoming events
+    When I go to the events homepage
 
 Scenario: Search for my club
-    When I go to the clubs homepage
-    Then I should see "Search"
-    When I fill in "club" with "Club_2"
-    And I press "Search"
-    Then I should see "Details about Club_2"
-    And I should see "Description"
+    When I press the button search for club
+    When I fill in "Search" with "Club_1"
+    When I check "Search by Club"
+    When I press the button search
+    And I should see "Event_1"
+    And I should see "Club_1"
 
 Scenario: Edit Facebook URl
-	When I go to the club homepage
-	When I follow "Edit"
-	Then I should see "Submit Event to CalCentral"
-	When I fill in "Facebook URL" with "https://www.facebook.com/groups/Club_2/events/"
-	And I press "Submit Events"
-	Then I should see "events were successfully added!!!"
-	And the facebook url for Club_2 should be "https://www.facebook.com/groups/Club_2/events/"
+	When I go to the club 1 homepage
+	When I fill in the facebook url with "https://www.facebook.com/groups/Club_2/events/"
+	And I press "Save"
+	Then I should see the alert "Club_1 successfully updated!"
 
 Scenario: Edit Invalid Facebook URl
-	When I go to the club homepage
-	When I follow "Edit"
-	Then I should see "Submit Event to CalCentral"
-	When I fill in "Facebook URL" with "https://www.google.com/groups/"
-	And I press "Submit Events"
-	Then I should see "events were not added!"
+	When I go to the club 3 homepage
+	And I press the save button
+	Then I should see the alert "Club_3 not updated!"
 	
