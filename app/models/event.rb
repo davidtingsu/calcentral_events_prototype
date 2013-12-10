@@ -71,7 +71,7 @@ class Event < ActiveRecord::Base
             friend_list = MiniFB.fql(access_token, "SELECT uid, name, profile_url, pic, pic_square from user where uid in (SELECT uid from event_member where eid = #{facebook_id} and uid IN (SELECT uid2 from friend where uid1 = me()))")
             update_attribute(:friend_list, friend_list)
         rescue => e
-          debugger
+          #TODO: handle error
           puts e.message
         end
    end

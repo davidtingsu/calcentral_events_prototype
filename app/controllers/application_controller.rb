@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_filter :make_sure_oauth_token_has_not_expired
   around_filter :save_search_values
   protect_from_forgery
   def index
@@ -29,5 +30,12 @@ class ApplicationController < ActionController::Base
       yield
     end
 
+  def make_sure_oauth_token_has_not_expired
+    if current_user and current_user.oauth_expires_at.past?
+        flash[:notice] = "Your session expired. Please sign in again."
+        session.clear
+        redirect_to_back home_path
+    end
+  end
 
 end

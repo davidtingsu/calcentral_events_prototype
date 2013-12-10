@@ -17,7 +17,7 @@ OmniAuth.config.add_mock(:facebook, {
   },
   :credentials => {
     :token => 'haha',
-    :expires_at => Time.now
+    :expires_at => Time.now + 1.day
   }                                                   
 })
 require 'rspec-rails'

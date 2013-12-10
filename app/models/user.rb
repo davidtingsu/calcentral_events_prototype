@@ -14,8 +14,12 @@ class User < ActiveRecord::Base
   end
   def  set_facebook_pic_square!
     if oauth_expires_at.future?
+        begin
         response = MiniFB.fql(oauth_token, "SELECT pic_square from user where uid = me() LIMIT 1")
         update_attribute(:facebook_pic_square, response.first.pic_square)
+        rescue => e
+            #TODO: handle error.
+        end
     end
   end
 
