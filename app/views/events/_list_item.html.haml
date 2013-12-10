@@ -38,11 +38,11 @@
           People Attending
           %br.visible-xs.hidden-sm.hidden-md.hidden-lg
           %small.label.label-primary #{event.facebook_attending_count.to_i}
-          %small.label.label-primary 5 Friends
+          - if event.friend_list.present?
+            %small.label.label-primary #{pluralize(event.friend_list.length,"friend")}
 
-      -# TODO: replace placeholder images with friends images
       - if event.friend_list.present?
-        - event.friend_list.each do |friend_hash|
+        - event.friend_list.slice(0..6).each do |friend_hash|
           %a{ :href => friend_hash.profile_url, :target => "_blank" }
             %img.img-circle{ :src => friend_hash.pic_square, :alt => friend_hash.name, :title => friend_hash.name  }
 

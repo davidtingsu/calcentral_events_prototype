@@ -66,8 +66,9 @@ class Event < ActiveRecord::Base
   def set_friend_list(access_token = "user_access_token")
         # access_token is retrieved from the authenticated user
         # to retrieve a test token go to https://developers.facebook.com/tools/explorer
+        # FQL does not support a friend count http://stackoverflow.com/a/2841577/1123985
         begin
-            friend_list = MiniFB.fql(access_token, "SELECT uid, name, profile_url, pic, pic_square from user where uid in (SELECT uid from event_member where eid = #{facebook_id} and uid IN (SELECT uid2 from friend where uid1 = me())) LIMIT 7")
+            friend_list = MiniFB.fql(access_token, "SELECT uid, name, profile_url, pic, pic_square from user where uid in (SELECT uid from event_member where eid = #{facebook_id} and uid IN (SELECT uid2 from friend where uid1 = me()))")
             update_attribute(:friend_list, friend_list)
         rescue => e
           debugger
