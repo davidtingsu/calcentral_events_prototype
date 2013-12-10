@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  around_filter :save_search_values
   protect_from_forgery
   def index
     render template: 'layouts/application'
@@ -18,5 +19,15 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :current_user
+
+  def save_search_values
+      session[:q] = params[:q]
+      session[:page] = params[:page]
+      session[:club] = params[:club]
+      session[:category] = params[:category]
+      session[:search_type] = params[:search_type]
+      yield
+    end
+
 
 end
