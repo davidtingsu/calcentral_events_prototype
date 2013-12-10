@@ -26,12 +26,11 @@ class ClubsController < ApplicationController
 
   def search
     fields = ['name']
-    page = params[:page].to_i
 
     if params[:category].present?
         fields << 'categories_name'
     end
-    @clubs = Club.search("#{fields.join("_or_")}_cont".to_sym => params[:q]).result(distinct: true).page(page).per(10)
+    @clubs = model_search(Club, fields)
     render "index"
   end
 

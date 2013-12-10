@@ -38,4 +38,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def model_search(model, fields, page = nil)
+    page ||= params[:page].to_i
+    model.search("#{fields.join("_or_")}_cont".to_sym => params[:q]).result(distinct: true).page(page).per(10)
+  end
+
+
 end

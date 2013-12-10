@@ -13,7 +13,6 @@ class EventsController < ApplicationController
 
   def search
         fields = ['name']
-        page = params[:page].to_i
 
         if params[:category].present?
             fields << 'categories_name'
@@ -22,7 +21,7 @@ class EventsController < ApplicationController
             fields << 'club_name'
         end
         # Event.search( :name_or_club_name_or_categories_name_cont => "").result
-        @events = Event.search("#{fields.join("_or_")}_cont".to_sym => params[:q]).result(distinct: true).page(page).per(10)
+        @events = model_search(Event, fields)
         @events.each{ |event|
             if event.is_facebook? and current_user.present?
               #TODO get current_user access token
@@ -32,11 +31,12 @@ class EventsController < ApplicationController
         render "index"
   end
 
+
   def publishtogoogle
       event = Event.find_by_id(params[:id])
       if event.nil?
-         flash["No such event"]
-         redirect_to("/")
+         flash[:warning] = "No such event"
+         redirect_to home_path
       else
       redirect_to(event.to_google_calendar_url)
     end
