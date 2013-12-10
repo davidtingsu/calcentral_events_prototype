@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131204034117) do
+ActiveRecord::Schema.define(:version => 20131210063744) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(:version => 20131204034117) do
 
   add_index "categories", ["callink_id"], :name => "index_categories_on_callink_id"
   add_index "categories", ["club_id"], :name => "index_categories_on_club_id"
+
+  create_table "categorizations", :force => true do |t|
+    t.integer  "club_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "clubs", :force => true do |t|
     t.text     "description"
@@ -48,10 +55,13 @@ ActiveRecord::Schema.define(:version => 20131204034117) do
     t.datetime "start_time"
     t.string   "facebook_id"
     t.integer  "club_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
     t.text     "name"
     t.string   "callink_id"
+    t.string   "facebook_pic_cover"
+    t.string   "location"
+    t.integer  "facebook_attending_count"
   end
 
   add_index "events", ["club_id"], :name => "index_events_on_club_id"
@@ -62,8 +72,9 @@ ActiveRecord::Schema.define(:version => 20131204034117) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "facebook_pic_square"
   end
 
 end

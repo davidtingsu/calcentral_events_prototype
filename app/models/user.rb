@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
     end
   end
   def  set_facebook_pic_square!
+    return if Rails.env.test?
     if oauth_expires_at.future?
         begin
         response = MiniFB.fql(oauth_token, "SELECT pic_square from user where uid = me() LIMIT 1")
