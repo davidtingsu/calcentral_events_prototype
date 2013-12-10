@@ -33,11 +33,12 @@
 
   .pull-left.col-lg-12.col-md-12{ :style => "padding-left:0;"}
     %p.text-left
-      %h4
-        People Attending
-        %br.visible-xs.hidden-sm.hidden-md.hidden-lg
-        %small.label.label-primary 100
-        %small.label.label-primary 5 Friends
+      - if event.is_facebook?
+        %h4
+          People Attending
+          %br.visible-xs.hidden-sm.hidden-md.hidden-lg
+          %small.label.label-primary #{event.facebook_attending_count.to_i}
+          %small.label.label-primary 5 Friends
 
       -# TODO: replace placeholder images with friends images
       - if event.friend_list.present?

@@ -107,6 +107,7 @@ class Club < ActiveRecord::Base
                    description: event_hash.description,
                    facebook_id: event_hash.eid.to_s,
                    facebook_pic_cover: (event_hash.pic_cover.source if event_hash.pic_cover.present?),
+                   facebook_attending_count: event_hash.attending_count,
                    location: event_hash.location }
     event ||= Event.find_by_facebook_id(event_hash.eid.to_s)
     event ||= Event.new(attributes)

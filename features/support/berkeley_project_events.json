@@ -1,5 +1,6 @@
 [{
     "eid": 307365299403756,
+    "attending_count": 183,
     "pic_cover": {
         "cover_id": 10202110409989943,
         "source": "http:\/\/scontent-a.xx.fbcdn.net\/hphotos-prn1\/s720x720\/1236315_10202110409989943_24370568_n.jpg",
@@ -24,6 +25,7 @@
     "timezone": "America\/Los_Angeles"
 }, {
     "eid": 186555158145920,
+    "attending_count": 387,
     "pic_cover": null,
     "venue": {
         "name": "Sproul Plaza and then ALL OVER BERKELEY!"
@@ -36,6 +38,7 @@
     "timezone": "America\/Los_Angeles"
 }, {
     "eid": 343835642372256,
+    "attending_count": 51,
     "pic_cover": null,
     "venue": {
         "name": "106 Moffitt"
@@ -48,6 +51,7 @@
     "timezone": "America\/Los_Angeles"
 }, {
     "eid": 182641111836157,
+    "attending_count": 104,
     "pic_cover": null,
     "venue": {
         "street": "",
@@ -63,6 +67,7 @@
     "timezone": null
 }, {
     "eid": 110700599052695,
+    "attending_count": 29,
     "pic_cover": null,
     "venue": {
         "street": "",
@@ -78,6 +83,7 @@
     "timezone": null
 }, {
     "eid": 111464355580184,
+    "attending_count": 48,
     "pic_cover": null,
     "venue": {
         "street": "",
@@ -93,6 +99,7 @@
     "timezone": null
 }, {
     "eid": 145332248833198,
+    "attending_count": 6,
     "pic_cover": null,
     "venue": {
         "street": "",
@@ -108,6 +115,7 @@
     "timezone": null
 }, {
     "eid": 111785192177480,
+    "attending_count": 20,
     "pic_cover": null,
     "venue": {
         "street": "",
