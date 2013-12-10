@@ -16,7 +16,7 @@ class Event < ActiveRecord::Base
 
   @@access_token = "173006739573053|DPlwPfobC-caWfyYKw5rU-aKrjM"
   @@daysRegex = /Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|every day|every|&/
-  @@monthRegex = /(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2} \d{4}|(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}|\d{1,2} \d{4}|(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}/
+  @@monthRegex = /(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2} \d{4}|(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}|\d{1,2} \d{4}|(January|February|March|April|May|June|July|August|September|October|Novemfber|December) \d{1,2}/
 
   def self.getFacebookEvents(facebook_page_id)
       #apply for new access_token
@@ -90,9 +90,9 @@ class Event < ActiveRecord::Base
       link = eventNode.at_css("h3 a")['href']
       eventID = /\d{5}/.match(link)[0]
       dateTime = eventNode.at_css('p').text.gsub(/\s/, '')
-      days = dateTime.gsub(/\W/, " ").scan(@@daysRegex).join(" ")
-  
+
       startTime = dateTime.split("|")[2].split("-")[0]
+ 
       if (dateTime.split("|")[2].split("-").size != 1)
         endTime = dateTime.split("|")[2].split("-")[1]
       end
@@ -103,13 +103,18 @@ class Event < ActiveRecord::Base
       if (@@monthRegex.match(matching.post_match) != nil)
         endDate = @@monthRegex.match(matching.post_match)[0]
       end
-      start = startDate + " " + startTime + " " + days
+      start = startDate + " " + startTime 
      
       if (endDate != nil && endTime != nil)
         ending = endDate + " " + endTime
+      
+      elsif (endDate == nil && endTime != nil)
+        ending = startDate + " " + endTime
+      elsif (endDate != nil && endTime == nil)
+        ending = endDate
       end
-      ending = endTime
-      dateTimeTable[eventID] = dates.push(start,ending)
+ 
+      dateTimeTable[eventID] = dates.push(start,ending)  
 
     end
     return dateTimeTable
