@@ -24,6 +24,13 @@
         .col-sm-2.col-md-2.pull-right{ :style => "padding-right:0;"}
           - if current_user
             = link_to "Sign out", signout_path, id: "sign_out", :class => "btn btn-primary pull-right", :style => "margin-top: 8px;"
+            %img.pull-right{ :src => current_user.facebook_pic_square, :style => "margin-right: 5px; height: 39px; margin-top: 8px;", :title => "#{current_user.name}" }
+            %strong{ :style => "display:block; margin-top: 8px; color:white; width: 47px; overflow-wrap: break-word;"}
+              - if current_user.name.length > 11
+                = "#{current_user.name.slice(0..10)}..."
+              - else
+                = current_user.name.slice(0..10)
+
           - else
             = link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", :class => "btn btn-primary pull-right", :style => "margin-top: 8px;"
 
