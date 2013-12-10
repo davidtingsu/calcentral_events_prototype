@@ -8,12 +8,10 @@ Background:
 
 Scenario: Export a valid event to google calendar
     When I go to the events homepage
-    When I press "Search"
-    Then I should see a clickable and directed link in Event_1 
+    Then I should see a clickable and directed link 
    
 Scenario: Attempt to Export an invalid event to google calendar
     When I go to the events homepage
-    When I press "Search"
     Then I should not see a link for a non-existent event
 
 
