@@ -17,17 +17,16 @@
 
     .navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
       .container
-        #user_nav
-          - if current_user
-            Signed in as
-            = succeed "!" do
-              %strong= current_user.name
-            = link_to "Sign out", signout_path, id: "sign_out"
-          - else
-            = link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"
 
         .navbar-header
           %a.navbar-brand{:href => "#"} Cal Central Events
+
+        .col-sm-2.col-md-2.pull-right{ :style => "padding-right:0;"}
+          - if current_user
+            = link_to "Sign out", signout_path, id: "sign_out", :class => "btn btn-primary pull-right", :style => "margin-top: 8px;"
+          - else
+            = link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", :class => "btn btn-primary pull-right", :style => "margin-top: 8px;"
+
         .col-sm-5.col-md-5.pull-right
           %form.navbar-form{:role => "search", action: search_events_path, method: "GET"}
             .input-group
